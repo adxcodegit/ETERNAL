@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="color-scheme" content="dark light" />
+<title>Eternal Limited: Initiating Coverage | AN·Equity Research</title>
+<meta name="description" content="Initiating coverage on Eternal Limited (NSE: ETERNAL) — investment thesis, one-pager and the full Excel model." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0A0D12;
+    --bg-2:      #0E1219;
+    --panel:     #111722;
+    --panel-2:   #161D2B;
+    --line:      #1E2634;
+    --line-hi:   #2A3446;
+    --text:      #E9ECF1;
+    --text-2:    #8B94A5;
+    --text-3:    #566074;
+    --amber:     #F0B429;
+    --amber-dim: #8A6A1C;
+    --amber-soft: rgba(240,180,41,.06);
+    --green:     #2EBD85;
+    --red:       #E5484D;
+    --blue:      #4A8FE7;
+
+    --serif: "Fraunces", Georgia, serif;
+    --mono:  "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+    --fs-read:  clamp(16.5px, 0.90vw + 13.0px, 18.5px);
+    --fs-mid:   clamp(15.0px, 0.70vw + 12.3px, 17.0px);
+    --fs-small: clamp(13.0px, 0.45vw + 11.2px, 14.5px);
+    --fs-micro: clamp(11.5px, 0.30vw + 10.3px, 12.8px);
+  }
+
+  [data-theme="light"] {
+    --bg:        #EFEDE6;
+    --bg-2:      #E7E4DB;
+    --panel:     #F7F5EF;
+    --panel-2:   #EDEAE1;
+    --line:      #D6D2C6;
+    --line-hi:   #C2BDAE;
+    --text:      #1B1E24;
+    --text-2:    #565E6E;
+    --text-3:    #8A9099;
+    --amber:     #A97B0E;
+    --amber-dim: #C9A85C;
+    --amber-soft: rgba(169,123,14,.07);
+    --green:     #1E8F63;
+    --red:       #C0353A;
+    --blue:      #2C6BC0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .cards, .mast-meta, .stance { min-width: 0; max-width: 100%; }
+  html {
+    scroll-behavior: smooth; background: var(--bg);
+    -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+  }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--mono); font-size: var(--fs-mid); line-height: 1.68;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh;
+    transition: background-color .35s ease, color .35s ease;
+    display: flex; flex-direction: column;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 900;
+    background: radial-gradient(ellipse at 50% 40%, transparent 58%, rgba(0,0,0,.30) 100%);
+  }
+  [data-theme="light"] body::before { background: none; }
+
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--amber); color: var(--bg); }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 34px; width: 100%; }
+  @media (max-width: 900px) { .wrap { padding: 0 24px; } }
+  @media (max-width: 560px) { .wrap { padding: 0 18px; } }
+
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+  .pos { color: var(--green); }
+
+  /* Status bar */
+  .status {
+    position: sticky; top: 0; left: 0; right: 0; z-index: 500;
+    background: var(--bg); border-bottom: 1px solid var(--line);
+    font-size: var(--fs-micro); letter-spacing: .07em;
+  }
+  .status .wrap { display: flex; align-items: center; height: 44px; max-width: 1080px; }
+  .st-cell { display: flex; align-items: center; gap: 8px; padding: 0 18px; height: 100%; border-right: 1px solid var(--line); white-space: nowrap; }
+  .st-cell:first-child { padding-left: 0; }
+  .st-cell.grow { flex: 1; border-right: none; justify-content: flex-end; padding-right: 0; gap: 18px; }
+  .st-brand { font-weight: 700; letter-spacing: .14em; }
+  .st-brand b { color: var(--amber); font-weight: 700; }
+  .st-dim { color: var(--text-3); text-transform: uppercase; }
+  .st-live { display: inline-flex; align-items: center; gap: 7px; color: var(--green); text-transform: uppercase; }
+  .st-live i { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+  .st-toggle {
+    background: none; border: 1px solid var(--line-hi); cursor: pointer;
+    color: var(--text-2); font-family: var(--mono); font-size: var(--fs-micro); font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; padding: 6px 13px;
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  .st-toggle:hover { color: var(--amber); border-color: var(--amber); background: var(--amber-soft); }
+  @media (max-width: 900px) { .st-hide { display: none; } }
+
+  /* Masthead */
+  main { flex: 1; }
+  .mast { padding: 100px 0 0; position: relative; }
+  .mast::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: -1;
+    background: radial-gradient(ellipse 900px 460px at 30% 20%, var(--amber-soft), transparent 70%);
+  }
+  .mast-kicker {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    font-size: var(--fs-micro); letter-spacing: .26em; text-transform: uppercase; color: var(--amber);
+    margin-bottom: 26px;
+  }
+  .mast-kicker span.rule { flex: 1; height: 1px; background: var(--amber-dim); min-width: 24px; }
+  .mast h1 {
+    font-family: var(--serif); font-weight: 300; letter-spacing: -.035em; line-height: .95;
+    font-size: clamp(38px, 6.4vw, 76px); margin-bottom: 8px;
+  }
+  .mast h1 em { font-style: italic; font-weight: 500; }
+  .mast h1 .dot { color: var(--amber); font-style: normal; }
+  .mast-sub {
+    font-family: var(--serif); font-style: italic; font-weight: 300;
+    font-size: clamp(18px, 2vw, 23px); line-height: 1.55; color: var(--text-2);
+    max-width: 56ch; margin: 22px 0 36px;
+  }
+  .mast-sub b { color: var(--text); font-weight: 400; font-style: normal; }
+
+  .mast-meta { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); background: var(--panel); margin-bottom: 56px; }
+  .mm { padding: 16px 20px; border-right: 1px solid var(--line); }
+  .mm:last-child { border-right: none; }
+  .mm .k { font-size: var(--fs-micro); letter-spacing: .15em; text-transform: uppercase; color: var(--text-3); }
+  .mm .v { font-size: var(--fs-mid); margin-top: 7px; line-height: 1.45; }
+  .mm .v b { color: var(--amber); font-weight: 600; }
+  @media (max-width: 780px) {
+    .mast-meta { grid-template-columns: repeat(2, 1fr); }
+    .mm:nth-child(2n) { border-right: none; }
+    .mm:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  }
+
+  /* Deliverable cards */
+  .cards-h { font-size: var(--fs-micro); font-weight: 700; letter-spacing: .17em; text-transform: uppercase; color: var(--text-3); padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 64px; }
+  @media (max-width: 780px) { .cards { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--panel); padding: 34px 30px 30px;
+    display: flex; flex-direction: column; gap: 18px;
+    transition: background .2s;
+  }
+  .card:hover { background: var(--panel-2); }
+
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .card-tag { font-size: var(--fs-micro); font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--amber); padding: 5px 10px; border: 1px solid var(--amber-dim); background: var(--amber-soft); }
+  .card-fmt { font-size: var(--fs-micro); letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); }
+
+  .card h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(21px, 2.4vw, 25px); letter-spacing: -.015em; line-height: 1.25; }
+  .card p { font-size: var(--fs-small); color: var(--text-2); line-height: 1.7; flex: 1; }
+  .card p b { color: var(--text); font-weight: 600; }
+
+  .card-meta { font-size: var(--fs-micro); color: var(--text-3); letter-spacing: .04em; padding-top: 4px; border-top: 1px solid var(--line); margin-top: 2px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    font-family: var(--mono); font-size: var(--fs-small); font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: 13px 18px; border: 1px solid var(--amber-dim); background: var(--amber-soft);
+    color: var(--amber); cursor: pointer; transition: background .2s, color .2s, border-color .2s;
+  }
+  .btn:hover { background: var(--amber); color: var(--bg); border-color: var(--amber); }
+  .btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .btn.secondary { background: none; color: var(--text-2); border-color: var(--line-hi); }
+  .btn.secondary:hover { background: var(--panel-2); color: var(--text); border-color: var(--text-3); }
+
+  /* Rating strip */
+  .rating { display: grid; grid-template-columns: 260px 1fr; border: 1px solid var(--amber-dim); background: var(--amber-soft); margin-bottom: 56px; }
+  .rating-l { padding: 24px 22px; border-right: 1px solid var(--amber-dim); }
+  .rating-l .lbl { font-size: var(--fs-micro); letter-spacing: .17em; text-transform: uppercase; color: var(--text-3); }
+  .rating-l .val { font-family: var(--serif); font-size: clamp(28px, 3.2vw, 34px); font-weight: 500; color: var(--amber); letter-spacing: -.02em; margin-top: 5px; line-height: 1.1; }
+  .rating-l .note { font-size: var(--fs-small); color: var(--text-2); margin-top: 10px; line-height: 1.6; }
+  .rating-r { padding: 24px 26px; font-size: var(--fs-read); color: var(--text-2); line-height: 1.75; display: flex; align-items: center; }
+  .rating-r b { color: var(--text); font-weight: 600; }
+  @media (max-width: 780px) { .rating { grid-template-columns: 1fr; } .rating-l { border-right: none; border-bottom: 1px solid var(--amber-dim); } }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0 46px; margin-top: auto; }
+  .disclosure { font-size: var(--fs-small); color: var(--text-3); line-height: 1.75; max-width: 90ch; margin-bottom: 14px; }
+  .disclosure b { color: var(--text-2); }
+  .colophon { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: var(--fs-micro); color: var(--text-3); letter-spacing: .04em; padding-top: 18px; border-top: 1px solid var(--line); margin-top: 18px; }
+  .colophon b { color: var(--amber); }
+</style>
+</head>
+<body>
+
+<div class="status">
+  <div class="wrap">
+    <div class="st-cell st-brand">AN<b>·</b>EQUITY RESEARCH</div>
+    <div class="st-cell st-dim st-hide">Initiating Coverage</div>
+    <div class="st-cell st-hide"><span class="st-live"><i></i>Eternal Limited · NSE: ETERNAL</span></div>
+    <div class="st-cell grow">
+      <button class="st-toggle" id="themeToggle" aria-label="Switch colour theme"><span id="toggleText">Light</span></button>
+    </div>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+
+  <div class="mast">
+    <div class="mast-kicker">
+      <span>Initiating Coverage</span><span class="rule"></span><span>India · Consumer Internet</span><span class="rule"></span><span>2 March 2026</span>
+    </div>
+    <h1>The Cash Cow<br><em>and the Land Grab<span class="dot">.</span></em></h1>
+    <p class="mast-sub">Eternal is a food-delivery duopoly at a record margin, funding a quick-commerce network that has just turned profitable for the first time. <b>Three deliverables, one model — pick the depth you need.</b></p>
+
+    <div class="mast-meta">
+      <div class="mm"><div class="k">Coverage</div><div class="v">Eternal Limited · NSE: ETERNAL</div></div>
+      <div class="mm"><div class="k">Information cut-off</div><div class="v"><b>2 Mar 2026</b> · Q3 FY26</div></div>
+      <div class="mm"><div class="k">Current market price</div><div class="v">₹242.87</div></div>
+      <div class="mm"><div class="k">Analyst</div><div class="v">Aditya Nair</div></div>
+    </div>
+  </div>
+
+  <div class="rating">
+    <div class="rating-l">
+      <div class="lbl">Rating &amp; target</div>
+      <div class="val">BUY · ₹304</div>
+      <div class="note">25.2% upside to the current market price, 12-month horizon.</div>
+    </div>
+    <div class="rating-r">Blended from a 30% discounted cash flow, 50% sum-of-the-parts and 20% EV/net-order-value triangulation — full walkthrough in the thesis.</div>
+  </div>
+
+  <div class="cards-h">Deliverables</div>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-top">
+        <span class="card-tag">Primary</span>
+        <span class="card-fmt">Web · ~20pp</span>
+      </div>
+      <h2>Investment Thesis</h2>
+      <p>The full initiating coverage note: business overview, competitive structure, financial analysis, DCF / SOTP / comps valuation walkthrough, bull &amp; bear cases, risks and what we watch.</p>
+      <div class="card-meta">ETERNAL_Investment_Thesis.html</div>
+      <a class="btn" href="ETERNAL_Investment_Thesis.html">
+        Read the thesis
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="card-tag">Summary</span>
+        <span class="card-fmt">Web · 1pp</span>
+      </div>
+      <h2>One-Pager</h2>
+      <p>The call, the target, the three valuation methods and the falsification condition — compressed to a single screen for a first read or a quick share.</p>
+      <div class="card-meta">ETERNAL_OnePager.html</div>
+      <a class="btn" href="ETERNAL_OnePager.html">
+        Open one-pager
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="card-tag">Backbone</span>
+        <span class="card-fmt">.XLSX</span>
+      </div>
+      <h2>Excel Model</h2>
+      <p>The three-statement build, DCF, SOTP, WACC, comps and scenarios — fully linked, balance-checked to zero, every output in both write-ups traces back to this file.</p>
+      <div class="card-meta">Eternal-Model.xlsx</div>
+      <a class="btn secondary" href="Eternal-Model.xlsx" download>
+        Download model
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="disclosure">
+      <b>Disclosure:</b> This report is a piece of independent research published as part of a personal research portfolio. Everything in it reflects my own analysis and estimates, produced from public filings, company disclosures and publicly available third-party data. It is for information only, is not investment advice, and is not a recommendation to buy or sell any security. I may hold a position in the security discussed. No compensation has been received from any company covered.
+    </p>
+    <div class="colophon">
+      <span>© 2026 Aditya Nair · Eternal Limited: Initiating Coverage</span>
+      <span>AN<b>·</b>EQUITY RESEARCH · Mumbai, India · Information cut-off 2 Mar 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const label = document.getElementById('toggleText');
+
+  const setTheme = (mode) => {
+    if (mode === 'light') { root.setAttribute('data-theme', 'light'); label.textContent = 'Dark'; }
+    else { root.removeAttribute('data-theme'); label.textContent = 'Light'; }
+  };
+
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  setTheme(saved === 'light' ? 'light' : 'dark');
+
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    setTheme(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+</script>
+
+</body>
+</html>
