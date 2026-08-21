@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="color-scheme" content="dark light" />
 <title>Eternal Limited: Initiating Coverage | AN·Equity Research</title>
-<meta name="description" content="Initiating coverage on Eternal Limited (NSE: ETERNAL) with a BUY rating and a ₹304 target price. Dark-store roll-forward model, sum-of-the-parts valuation, DCF and FY33 scenarios. Information cut-off 2 March 2026." />
+<meta name="description" content="Initiating coverage on Eternal Limited (NSE: ETERNAL). BUY, target ₹297. Nine-year FCFF DCF to FY35E, sum-of-the-parts on FY30E segment metrics, and a three-route relative cross-check. Data cut-off 2 March 2026." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -430,42 +430,107 @@
     .mast { padding-top: 0; }
     a { color: #111 !important; }
   }
-</style>
-<style>
-@media print {
-  :root {
-    --fs-read: 10.2pt; --fs-mid: 9.2pt; --fs-small: 8.2pt; --fs-micro: 7.2pt;
-  }
-  html, body { background:#fff !important; color:#111 !important; }
-  .sec { page-break-inside: auto !important; break-inside: auto !important;
-         padding: 10px 0 14px !important; margin: 0 !important; }
-  .sec-head { break-after: avoid; page-break-after: avoid; }
-  h1 { font-size: 30pt !important; }
-  .mast { padding: 0 0 8px !important; }
-  .mast-sub { font-size: 11pt !important; }
-  .stance-r, .stance-l .val { font-size: 9.6pt !important; line-height:1.55 !important; }
-  .stance-l .val { font-size: 20pt !important; }
-  p.body, li { line-height: 1.52 !important; margin-bottom: 7px !important; }
-  h3.sub { margin: 16px 0 7px !important; font-size: 14pt !important; break-after: avoid; }
-  .tbl-wrap, .chart, .callout, .split, .thesis, .stats {
-    break-inside: avoid; page-break-inside: avoid; margin: 12px 0 !important; }
-  table.dt td, table.dt th { padding: 3.5px 6px !important; }
-  .th-card, .stat, .pane, .callout { padding: 10px 12px !important; }
-  .thesis { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
-  .stats { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
-  .chart-b .row { padding: 2.5px 0 !important; }
-  footer { padding: 12px 0 !important; }
-  .wrap { padding: 0 !important; max-width: none !important; }
-}
-</style>
 
+  @media print {
+    @page { size: A4; margin: 14mm 13mm; }
+    /* The screen palette is dark. Printing it unchanged puts near-white body
+       text and white <b> runs onto white paper. Remap every token to the
+       light theme for print. */
+    :root {
+      --bg: #FFFFFF; --bg-2: #F4F2EC; --panel: #FAF9F5; --panel-2: #F0EEE7;
+      --line: #D6D2C6; --line-hi: #B4AE9E;
+      --text: #14171C; --text-2: #353B45; --text-3: #6B7280;
+      --amber: #8A6208; --amber-dim: #B99C50; --amber-soft: rgba(138,98,8,.06);
+      --green: #16704E; --red: #A62B2F; --blue: #23548F;
+      --fs-read: 11.3pt; --fs-mid: 10.7pt; --fs-small: 9.6pt; --fs-micro: 8.2pt;
+    }
+    html, body { font-size: 11.3pt; line-height: 1.66; color: var(--text) !important; }
+    p.body, .callout p, .co-body p, ul.body li, ol.body li,
+    table.dt td, .th-card .d, .pane li, .watch-r .w, .stance-r { color: var(--text-2) !important; }
+    p.body b, p.body strong, .callout p b, .co-body p b, ul.body li b, ol.body li b,
+    table.dt td.co, tr.tot td, .th-card .d b, .pane li b, .stance-r b, .stat .v,
+    .mm .v, .co-kpi .v, .watch-r .m, .sec-title, .th-card .t, h3.sub, .co-head .nm { color: var(--text) !important; }
+    .stat, .th-card, .pane, .callout, .co-block, .watch, .tbl-wrap, .chart, .mast-meta {
+      background: var(--panel) !important; border-color: var(--line) !important;
+    }
+    tr.tot td, tr.grp td { background: var(--bg-2) !important; }
+    .row .tr { background: var(--bg-2) !important; }
+    .row .br { background: #B99C50 !important; }
+    .row .br.hi { background: #8A6208 !important; }
+    .row .br.dim { background: #C9C4B5 !important; }
+    .wrap { padding: 0 !important; max-width: none; }
+    .sec { padding: 20px 0 !important; page-break-inside: auto !important; }
+    .sec-head { margin-bottom: 12px; page-break-after: avoid; }
+    .sec-title { font-size: 19pt !important; }
+    .sec-mn { padding: 3px 7px; }
+    .mast { padding: 0 0 6px !important; }
+    .mast h1 { font-size: 30pt !important; line-height: .95; margin-bottom: 4px; }
+    .mast-sub { font-size: 10.5pt !important; margin: 10px 0 14px; max-width: none; }
+    .mast-kicker { margin-bottom: 12px; }
+    .mast-meta .mm { padding: 7px 10px; }
+    .stance-l, .stance-r { padding: 11px 13px; }
+    .stance-l .val { font-size: 19pt !important; }
+    h3.sub { font-size: 11.5pt !important; margin: 16px 0 7px; page-break-after: avoid; }
+    p.body { line-height: 1.68; max-width: none; }
+    p.body + p.body { margin-top: 11px; }
+    ul.body, ol.body { gap: 9px; margin-top: 12px; }
+    ul.body li, ol.body li { line-height: 1.62; }
+    .stats { gap: 6px; margin: 12px 0; page-break-inside: avoid; }
+    .stat { padding: 13px 13px; }
+    .stat .v { font-size: 14pt !important; }
+    .stat .k { margin-top: 4px; }
+    .thesis, .split { gap: 6px; margin: 12px 0; }
+    .th-card, .pane { padding: 15px 16px; page-break-inside: avoid; }
+    .th-card .t { font-size: 10.5pt !important; margin: 5px 0 5px; }
+    .th-card .d, .pane li { line-height: 1.62; }
+    .pane ul { gap: 6px; }
+    .tbl-wrap { margin: 12px 0; overflow: visible !important; page-break-inside: avoid; }
+    table.dt { min-width: 0 !important; }
+    table.dt caption { padding: 6px 9px; }
+    table.dt th { padding: 7px 10px; }
+    table.dt td { padding: 7px 10px; line-height: 1.5; }
+    .tbl-note { padding: 6px 9px; line-height: 1.45; }
+    .chart { margin: 12px 0; page-break-inside: avoid; }
+    .chart-h, .chart-f { padding: 6px 10px; }
+    .chart-b { padding: 10px 10px 2px; }
+    .row { margin-bottom: 7px; grid-template-columns: 110px 1fr 74px; gap: 9px; }
+    .row .tr { height: 11px; }
+    .callout { padding: 14px 16px; margin: 16px 0; page-break-inside: avoid; }
+    .callout p { line-height: 1.68; max-width: none; }
+    .callout p + p { margin-top: 6px; }
+    .co-block { margin: 12px 0; }
+    .co-head { padding: 10px 12px; }
+    .co-head .nm { font-size: 14pt !important; }
+    .co-kpi div { padding: 7px 10px; }
+    .co-kpi .v { font-size: 11pt !important; }
+    .co-body { padding: 12px; }
+    .co-body p { line-height: 1.68; max-width: none; }
+    .co-body .tag { margin: 12px 0 5px; }
+    .watch { margin: 12px 0; }
+    .watch-r { padding: 10px 14px; gap: 13px; }
+    .watch-r .w { line-height: 1.62; }
+    .fn { line-height: 1.68; margin-top: 10px; max-width: none; }
+    .dateflag { border: 1.5px solid #111 !important; padding: 9px 12px; margin-bottom: 12px; }
+    .dateflag p { line-height: 1.68; max-width: none; }
+    footer { padding: 16px 0 0; margin-top: 6px; }
+    .disclosure { line-height: 1.7; max-width: none; }
+    .colophon { margin-top: 12px; padding-top: 9px; }
+    .scroll-hint { display: none !important; }
+    section#s2, section#s4, section#s5, section#s7, section#s9, section#s10, section#s12 { page-break-before: always; }
+  }
+  .dateflag { border: 1px solid var(--amber-dim); background: var(--amber-soft); padding: 16px 20px; margin: 0 0 26px; }
+  .dateflag .dh { font-size: var(--fs-micro); font-weight: 700; letter-spacing: .17em; text-transform: uppercase; color: var(--amber); margin-bottom: 9px; }
+  .dateflag p { font-size: var(--fs-small); line-height: 1.8; color: var(--text-2); max-width: 72ch; }
+  .sensgrid table.dt { min-width: 480px; }
+  table.dt td.hl { color: var(--amber); font-weight: 700; }
+</style>
 <body>
 
 <div class="status">
   <div class="wrap">
     <div class="st-cell st-brand">AN<b>·</b>EQUITY RESEARCH</div>
     <div class="st-cell st-dim st-hide">Initiating Coverage</div>
-    <div class="st-cell st-hide"><span class="st-live"><i></i>ETERNAL IN · Consumer Internet</span></div>
+    <div class="st-cell st-hide"><span class="st-live"><i></i>Eternal Ltd · NSE: ETERNAL</span></div>
     <div class="st-cell grow">
       <span class="st-clock num st-hide" id="clock" style="color:var(--text-2)">--:--:-- IST</span>
       <button class="st-toggle" id="themeToggle" aria-label="Switch colour theme"><span id="toggleText">Light</span></button>
@@ -479,24 +544,32 @@
     <div class="mast-kicker">
       <span>Initiating Coverage</span><span class="rule"></span><span>India · Consumer Internet</span><span class="rule"></span><span>2 March 2026</span>
     </div>
-    <h1>The Cash Cow<br><em>and the Land Grab<span class="dot">.</span></em></h1>
-    <p class="mast-sub">Eternal is a food-delivery duopoly at a record margin funding a quick-commerce network that has just turned profitable for the first time. The market is pricing the fight and ignoring the funding. <b>We disagree — but not because of the discounted cash flow.</b></p>
+    <h1>Ten Thousand<br><em>Small Shops<span class="dot">.</span></em></h1>    <p class="mast-sub">Eternal is priced as an internet platform and underwritten as one. It is neither.
+      What the market owns is a <b>retail property rollout</b> — thousands of small leased boxes whose
+      profitability is a function of orders per store per day, not of network effects. Underwrite the
+      density and the rest follows.</p>
 
     <div class="mast-meta">
-      <div class="mm"><div class="k">Coverage</div><div class="v">Eternal Limited · NSE: ETERNAL</div></div>
-      <div class="mm"><div class="k">Information cut-off</div><div class="v"><b>2 Mar 2026</b> · Q3 FY26</div></div>
-      <div class="mm"><div class="k">Current market price</div><div class="v">₹242.87</div></div>
+      <div class="mm"><div class="k">Coverage</div><div class="v">Eternal Limited</div></div>
+      <div class="mm"><div class="k">Data cut-off</div><div class="v"><b>2 Mar 2026</b> · Q3 FY26</div></div>
+      <div class="mm"><div class="k">Ticker</div><div class="v">NSE: ETERNAL · BSE: 543320</div></div>
       <div class="mm"><div class="k">Analyst</div><div class="v">Aditya Nair</div></div>
     </div>
 
     <div class="stance">
       <div class="stance-l">
-        <div class="lbl">Rating &amp; target</div>
-        <div class="val">BUY<br>₹304</div>
-        <div class="note">25.2% upside to a ₹242.87 current market price.</div>
+        <div class="lbl">Rating · 12-month target</div>
+        <div class="val">BUY<br>₹297</div>
+        <div class="note">₹242.87 current · <b class="amb">22.3%</b> implied upside</div>
       </div>
       <div class="stance-r">
-        Blinkit turned adjusted EBITDA positive for the first time in December 2025 — ₹4 crore on ₹13,300 crore of net order value — while adding 211 stores and growing 121%. Food delivery printed an all-time-high 5.4% margin with growth accelerating for a second straight quarter. The stock fell roughly 15% between mid-February and the cut-off on competitive noise. <b>We initiate at BUY, and we say plainly that our DCF does not support the call.</b> At ₹238 it sits marginally below the price, with 76% of value in terminal — a seven-year DCF terminalising a business mid-S-curve. The case rests on the sum-of-the-parts at ₹336, and specifically on Blinkit being worth 1.50× its FY30E net order value. <b>At 1.20× the rating weakens; at 1.00× it fails.</b> That is the falsification condition, stated up front.
+        The debate is not whether quick commerce works — Blinkit's December-quarter print settled that.
+        The debate is <b>what a mature dark-store cluster earns and how many of them India supports</b>.
+        We model 8,500 stores by FY35E at a 6.4% margin on order value, which
+        produces a nine-year FCFF value of ₹251 and a segment-level value of ₹336.
+        The gap between those two numbers is the thesis. At ₹242.87 the market implies
+        <b>6.2% perpetual growth</b> — below India's nominal GDP — which is too cheap for an asset
+        compounding order value at 44% into a consolidating three-player market.
       </div>
     </div>
   </div>
@@ -505,13 +578,12 @@
 <div class="strip" aria-hidden="true">
   <div class="strip-inner" id="stripInner">
     <div class="strip-set">
-      <div class="strip-item"><span class="tk">RATING</span><span class="dv">BUY</span><span class="st">Target ₹304 · 25.2%</span></div>
-      <div class="strip-item"><span class="tk">MARKET CAP</span><span class="dv">₹2.43 L Cr</span><span class="st">965.04 cr shares</span></div>
-      <div class="strip-item"><span class="tk">BLINKIT NOV</span><span class="dv">₹13,300 Cr</span><span class="st">Q3 FY26, +121% YoY</span></div>
-      <div class="strip-item"><span class="tk">FIRST PROFIT</span><span class="dv">₹4 Cr</span><span class="st">Blinkit adj. EBITDA, Q3 FY26</span></div>
-      <div class="strip-item"><span class="tk">FD MARGIN</span><span class="dv">5.4%</span><span class="st">All-time high, % of NOV</span></div>
+      <div class="strip-item"><span class="tk">CMP</span><span class="dv">₹242.87</span><span class="st">2-Mar-26 close</span></div>
+      <div class="strip-item"><span class="tk">TARGET</span><span class="dv">₹297</span><span class="st">22.3% upside · BUY</span></div>
+      <div class="strip-item"><span class="tk">MKT CAP</span><span class="dv">₹2,34,379 Cr</span><span class="st">965.04 cr shares</span></div>
       <div class="strip-item"><span class="tk">NET CASH</span><span class="dv">₹18,911 Cr</span><span class="st">FY26E, after leases</span></div>
-      <div class="strip-item"><span class="tk">EV / FY27E NOV</span><span class="dv">1.55×</span><span class="st">vs Swiggy 0.87×</span></div>
+      <div class="strip-item"><span class="tk">EV/NOV FY27E</span><span class="dv">1.5x</span><span class="st">B2C order value</span></div>
+      <div class="strip-item"><span class="tk">DARK STORES</span><span class="dv">2,300</span><span class="st">FY26E → 8,500 FY35E</span></div>
     </div>
   </div>
 </div>
@@ -521,292 +593,799 @@
 
   <nav class="toc" aria-label="Contents">
     <div class="toc-h">Contents</div>
-    <a href="#s1"><i>01</i> Investment case</a><a href="#s2"><i>02</i> The business</a><a href="#s3"><i>03</i> Blinkit: the engine</a><a href="#s4"><i>04</i> Food delivery: the funder</a><a href="#s5"><i>05</i> District &amp; Hyperpure</a><a href="#s6"><i>06</i> Competitive structure</a><a href="#s7"><i>07</i> Financial analysis</a><a href="#s8"><i>08</i> Valuation</a><a href="#s9"><i>09</i> Bull vs bear</a><a href="#s10"><i>10</i> Scenarios</a><a href="#s11"><i>11</i> Risks</a><a href="#s12"><i>12</i> What we watch</a><a href="#s13"><i>13</i> Appendix</a>
+    <a href="#s1"><i>01</i> Investment case</a>
+    <a href="#s2"><i>02</i> Business overview</a>
+    <a href="#s3"><i>03</i> Industry structure</a>
+    <a href="#s4"><i>04</i> The Blinkit engine</a>
+    <a href="#s5"><i>05</i> Financial history</a>
+    <a href="#s6"><i>06</i> Forecast architecture</a>
+    <a href="#s7"><i>07</i> Valuation</a>
+    <a href="#s8"><i>08</i> Scenarios</a>
+    <a href="#s9"><i>09</i> Bull &amp; bear</a>
+    <a href="#s10"><i>10</i> Risks</a>
+    <a href="#s11"><i>11</i> What we watch</a>
+    <a href="#s12"><i>12</i> Appendix</a>
   </nav>
 
   <main>
-  <section class="sec" id="s1"><div class="sec-head rv"><span class="sec-mn">01</span><h2 class="sec-title">Investment case</h2><span class="sec-meta">Executive summary</span></div>
-<div class="rv">
-<p class="body"><b>Eternal is two businesses fused onto one balance sheet, and the market prices them as one.</b> A food-delivery duopoly running at a record 5.4% margin on net order value, throwing off roughly ₹2,000 crore of adjusted EBITDA a year on negative capital employed. And a quick-commerce network that in the December 2025 quarter turned adjusted EBITDA positive for the first time — ₹4 crore on ₹13,300 crore of net order value — while still growing 121% year on year. The first funds the second. That is the whole company.</p>
+  <section class="sec" id="s1">
+    <div class="sec-head rv">
+      <span class="sec-mn">01</span>
+      <h2 class="sec-title">The investment case</h2>
+      <span class="sec-meta">Executive summary</span>
+    </div>
 
-<p class="body">We initiate at <b>BUY with a twelve-month target price of ₹304</b>, 25.2% above the ₹242.87 current market price. The target is a weighted blend: 30% a discounted cash flow at ₹238, 50% a sum-of-the-parts on FY30E segment metrics at ₹336, and 20% an EV/net-order-value cross-check at ₹323.</p>
+    <div class="dateflag rv">
+      <div class="dh">Point-in-time note · data cut-off 2 March 2026</div>
+      <p>Every figure in this report is stated as at <b>2 March 2026</b>, against a reference price of
+      ₹242.87 and the September–December 2025 quarter as the last reported period. It has not been
+      marked to a later market. Read it as a dated record of the call made on that date, not as a live
+      recommendation.</p>
+    </div>
 
-<p class="body"><b>We should say the uncomfortable part first.</b> Our discounted cash flow, at a 12.66% cost of capital and 6.5% terminal growth, produces ₹238 — marginally <em>below</em> the current market price. Terminal value is 76% of enterprise value, which means the DCF is a statement about FY33 wearing a valuation costume. The buy case does not rest on discounted cash flow. It rests on the sum-of-the-parts, and specifically on Blinkit being worth 1.50× its FY30E net order value. If you think that multiple is 1.20×, the blended fair value falls to roughly ₹292 and the upside halves. We would rather you attack that number than any other in this note.</p>
+    <div class="rv">
+      <p class="body"><b>Eternal is a retail business trading on an internet multiple, and the mismatch is the
+      opportunity.</b> Blinkit turned its first positive adjusted EBITDA in the December 2025 quarter —
+      ₹4 crore on ₹13,300 crore of net order value. The number is immaterial. What it establishes is that a
+      mature Indian dark-store cluster earns a real operating margin, which converts quick commerce from a
+      subsidised habit into a retail format with a knowable steady state.</p>
 
-<p class="body">The stock has fallen roughly 15% from ₹285.20 on 13 February on competitive noise — Amazon Now's expansion, Flipkart Minutes, an IPO-bound Zepto — into a quarter in which Blinkit added 211 stores, printed its first profit, took its food-delivery margin to an all-time high and accelerated food-delivery growth for a second consecutive quarter. <b>The operating evidence and the price have moved in opposite directions.</b> That is the setup.</p>
-</div>
+      <p class="body">Once that is true, the valuation question changes shape. It stops being "what multiple does a
+      platform deserve" and becomes "how many stores, at what throughput, at what margin". We model the
+      dark-store estate from 1,301 at FY25A to <b>6,000 by FY30E and
+      8,500 by FY35E</b>, with net order value per store per day rising from
+      ₹6.71 lakh to ₹12.30 lakh, and Blinkit's adjusted EBITDA margin on
+      order value moving from -3.3% to 6.4%. Consolidated B2C net order value
+      compounds from ₹62,291 crore to ₹5,31,396 crore.</p>
 
-<div class="stats rv">
-  <div class="stat"><div class="v num">₹304</div><div class="k">Target price, 12 months</div><div class="d">25.2% upside</div></div>
-  <div class="stat"><div class="v num">₹158.6<em>k Cr</em></div><div class="k">Blinkit NOV, FY29E</div><div class="d">from ₹22,373 Cr in FY25</div></div>
-  <div class="stat"><div class="v num">6,000</div><div class="k">Dark stores, FY30E</div><div class="d">2,027 at Dec-2025</div></div>
-  <div class="stat"><div class="v num">₹18,911<em> Cr</em></div><div class="k">Net cash after leases, FY26E</div><div class="d">8.1% of market cap</div></div>
-</div>
+      <p class="body">That build produces three valuations that do not agree, and the disagreement is informative.
+      A nine-year FCFF discounted cash flow returns <b>₹251</b>. A sum-of-the-parts on FY30E segment
+      metrics returns <b>₹336</b>. A three-route relative cross-check returns <b>₹267</b>.
+      We weight them 30 / 50 / 20 for a target of <em>₹297</em>. The SOTP carries the most weight because
+      consolidated multiples on a four-segment business with margins ranging from 2.0% to
+      5.9% are close to meaningless.</p>
 
-<h3 class="sub rv">Six calls</h3>
-<div class="thesis rv">
-  <div class="th-card"><div class="n">CALL 01 · HIGH CONVICTION</div><div class="t">Blinkit's profit inflection is structural, not a print</div>
-  <div class="d">Delhi NCR at ~3.5% and Gurgaon+Noida at ~5% of NOV are the disclosed proof that a mature Indian dark-store cluster earns real money. <b>Consolidated Blinkit is at 0% because it is paying for 1,000 immature stores, not because the format doesn't work.</b></div></div>
+      <p class="body">The most useful single line in the model is the reverse DCF. At ₹242.87 the market is
+      implying <b>6.2% perpetual growth</b> against India's ~10.5% nominal GDP. The market is not
+      pricing heroic assumptions into Eternal; it is pricing sub-GDP terminal growth into the country's
+      fastest-scaling retail format. That is the mispricing we are underwriting.</p>
+    </div>
 
-  <div class="th-card"><div class="n">CALL 02 · HIGH CONVICTION</div><div class="t">Throughput per store is the scoreboard, and it is holding</div>
-  <div class="d">FY25 productivity was ₹6.71 lakh of NOV per store per day on 823 average stores. FY26E is ₹7.39 lakh on 1,800. <b>The network doubled without diluting the cohort.</b> That is the single most important fact in the model.</div></div>
+    <h3 class="sub rv">Six calls</h3>
+    <div class="thesis rv">
+      <div class="th-card">
+        <div class="n">CALL 01 · HIGH CONVICTION</div>
+        <div class="t">Density, not store count, is the scoreboard</div>
+        <div class="d">Profitability is a function of orders per store per day. We underwrite NOV per store per day
+        rising from <b>₹7.39 lakh in FY26E to ₹9.80 lakh by FY30E</b>. If
+        throughput stalls below ₹8 lakh, the margin path fails regardless of how many stores open.</div>
+      </div>
+      <div class="th-card">
+        <div class="n">CALL 02 · HIGH CONVICTION</div>
+        <div class="t">Blinkit is the entire equity story</div>
+        <div class="d">Quick commerce is <b>61.1% of our FY30E sum-of-the-parts enterprise value</b>.
+        Food delivery is a cash annuity that funds it. Hyperpure and District are rounding errors. Any thesis on
+        Eternal that is not primarily a thesis on Blinkit is mis-specified.</div>
+      </div>
+      <div class="th-card">
+        <div class="n">CALL 03 · HIGH CONVICTION</div>
+        <div class="t">The balance sheet is the moat</div>
+        <div class="d">Net cash after lease liabilities of <b>₹18,911 crore at FY26E</b>, rising to
+        ₹51,943 crore by FY30E. In a format where the binding constraint is who can fund negative
+        contribution longest, the treasury is a competitive weapon, not idle capital.</div>
+      </div>
+      <div class="th-card">
+        <div class="n">CALL 04 · MEDIUM CONVICTION</div>
+        <div class="t">Margin converges to 6%, not to 10%</div>
+        <div class="d">We take Blinkit to <b>6.0% of order value by FY33E</b> and stop there.
+        Management's NCR disclosure supports 3.5–5% at maturity. Underwriting double-digit margins on a grocery
+        format with 10-minute delivery obligations is not supportable from anything disclosed.</div>
+      </div>
+      <div class="th-card">
+        <div class="n">CALL 05 · CONTRARIAN</div>
+        <div class="t">The market implies sub-GDP terminal growth</div>
+        <div class="d">Reverse-DCF at ₹242.87 backs out <b>6.2% perpetuity</b> versus ~10.5% nominal
+        GDP. The consensus worry is that Eternal is priced for perfection. On our numbers it is priced for
+        permanent deceleration below the economy.</div>
+      </div>
+      <div class="th-card">
+        <div class="n">CALL 06 · MEDIUM CONVICTION</div>
+        <div class="t">Ind AS 116 hides the capital intensity</div>
+        <div class="d">Lease liabilities go from ₹2,045 crore at FY25A to
+        <b>₹12,099 crore at FY30E</b>. A "capex-light" read of this business that ignores
+        the lease book understates invested capital by roughly a third. Our ROIC is computed after it.</div>
+      </div>
+    </div>
 
-  <div class="th-card"><div class="n">CALL 03 · HIGH CONVICTION</div><div class="t">Food delivery is a funding source the market underrates</div>
-  <div class="d">Margin at an all-time-high 5.4% of NOV and growth accelerating for two straight quarters against management's own "inch up towards 20%" framing. <b>It generates the cash the expansion consumes, with no external funding required.</b></div></div>
+    <h3 class="sub rv">Key financials</h3>
+    <div class="stats rv">
+      <div class="stat"><div class="v">₹242.87</div><div class="k">Current price · 2 Mar 2026</div></div>
+      <div class="stat"><div class="v amb">₹297</div><div class="k">12-month target</div><div class="d">22.3% upside</div></div>
+      <div class="stat"><div class="v">1.5x</div><div class="k">EV / FY27E B2C order value</div></div>
+      <div class="stat"><div class="v">₹18,911<em> cr</em></div><div class="k">FY26E net cash, post-lease</div></div>
+    </div>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Eternal Limited — <b>key financials, FY25A to FY30E</b></caption>
+        <thead><tr><th>₹ crore unless stated</th><th>FY25A</th><th>FY26E</th><th>FY27E</th><th>FY28E</th><th>FY29E</th><th>FY30E</th></tr></thead>
+        <tbody>
+          <tr><td class="co">Revenue from operations (₹ cr)</td><td class="num">20,242</td><td class="num">54,670</td><td class="num">95,618</td><td class="num">1,34,814</td><td class="num">1,77,602</td><td class="num">2,21,393</td></tr>
+          <tr><td class="co">B2C net order value (₹ cr)</td><td class="num">62,291</td><td class="num">96,766</td><td class="num">1,39,409</td><td class="num">1,88,619</td><td class="num">2,41,983</td><td class="num">2,96,567</td></tr>
+          <tr class="tot"><td class="co">Adjusted EBITDA (₹ cr)</td><td class="num">766</td><td class="num">1,153</td><td class="num">3,985</td><td class="num">7,655</td><td class="num">12,016</td><td class="num">16,897</td></tr>
+          <tr><td class="co">Adj. EBITDA margin on order value</td><td class="num">1.2%</td><td class="num">1.2%</td><td class="num">2.9%</td><td class="num">4.1%</td><td class="num">5.0%</td><td class="num">5.7%</td></tr>
+          <tr><td class="co">EBIT (₹ cr)</td><td class="num">(225)</td><td class="num">(228)</td><td class="num">2,741</td><td class="num">6,473</td><td class="num">10,833</td><td class="num">15,687</td></tr>
+          <tr class="tot"><td class="co">Profit after tax (₹ cr)</td><td class="num">528</td><td class="num">383</td><td class="num">2,561</td><td class="num">5,843</td><td class="num">9,998</td><td class="num">14,126</td></tr>
+          <tr><td class="co">EPS (₹)</td><td class="num">₹0.60</td><td class="num">₹0.40</td><td class="num">₹2.65</td><td class="num">₹6.05</td><td class="num">₹10.36</td><td class="num">₹14.64</td></tr>
+          <tr><td class="co">Free cash flow (₹ cr)</td><td class="num">—</td><td class="num">5,389</td><td class="num">5,597</td><td class="num">8,897</td><td class="num">13,570</td><td class="num">18,124</td></tr>
+          <tr><td class="co">Return on equity</td><td class="num">—</td><td class="num">1.2%</td><td class="num">7.7%</td><td class="num">15.3%</td><td class="num">21.2%</td><td class="num">23.5%</td></tr>
+          <tr><td class="co">EV / net order value</td><td class="num">3.5x</td><td class="num">2.2x</td><td class="num">1.5x</td><td class="num">1.1x</td><td class="num">0.8x</td><td class="num">0.6x</td></tr>
+          
+        </tbody>
+      </table>
+      <div class="tbl-note">FY25A is audited Ind AS. FY26E is nine months reported plus an estimated Q4.
+      FY27E onward are analyst forecasts driven from the model's Assumptions tab.
+      Source: Company disclosures, Aditya Nair Research estimates.</div>
+    </div>
+  </section>
+  <section class="sec" id="s2">
+    <div class="sec-head rv">
+      <span class="sec-mn">02</span>
+      <h2 class="sec-title">What you actually own</h2>
+      <span class="sec-meta">Business overview</span>
+    </div>
 
-  <div class="th-card"><div class="n">CALL 04 · MEDIUM CONVICTION</div><div class="t">Model NOV, never revenue</div>
-  <div class="d">The 1P shift grossed reported revenue up 170% year on year in Q3 FY26 with zero economic change. Consolidated EV/revenue for Eternal against Swiggy is not a comparison, it is a category error. <b>Order value is the only denominator measured the same way on both sides.</b></div></div>
+    <div class="co-block rv">
+      <div class="co-head">
+        <div>
+          <div class="nm">Eternal Limited</div>
+          <div class="tk">NSE: ETERNAL · BSE: 543320 · formerly Zomato Ltd</div>
+        </div>
+        <div class="badge a">Four segments · one balance sheet</div>
+      </div>
+      <div class="co-kpi">
+        <div><div class="k">FY25A revenue</div><div class="v num">₹20,242 cr</div></div>
+        <div><div class="k">FY25A B2C order value</div><div class="v num">₹62,291 cr</div></div>
+        <div><div class="k">Dark stores, FY25A</div><div class="v num">1,301</div></div>
+        <div><div class="k">Net cash, FY26E</div><div class="v num">₹18,911 cr</div></div>
+      </div>
+      <div class="co-body">
+        <p>Eternal runs four businesses that share a treasury and very little else. <b>Blinkit</b> is
+        an owned-inventory quick commerce retailer operating from leased dark stores. <b>Zomato</b> is a
+        marketplace taking a commission on restaurant order value. <b>District</b> is a going-out and ticketing
+        platform. <b>Hyperpure</b> is a B2B supplies distributor to restaurants. The consolidated income
+        statement blends a 1P retail gross margin with a 3P marketplace take rate, which is why consolidated
+        revenue multiples on this company mislead in both directions.</p>
 
-  <div class="th-card"><div class="n">CALL 05 · MEDIUM CONVICTION</div><div class="t">Negative working capital is a real, underpriced asset</div>
-  <div class="d">Grocery supplier terms are longer than grocery inventory turns. At 14 inventory days against 30 payable days, <b>growth releases cash</b> — worth ₹1,200–1,700 crore a year of free cash flow by the end of our forecast.</div></div>
+        <span class="tag">Why revenue is the wrong denominator</span>
+        <p>Blinkit books roughly <b>92% of net order value as revenue</b> because it owns
+        the inventory. Zomato books roughly 27.5% of order value because it takes a
+        commission. Identical order value produces wildly different reported revenue. As Blinkit's share of the
+        mix rises, consolidated revenue growth of 170% in FY26E overstates the
+        underlying trajectory — B2C order value, the like-for-like measure, grows
+        55%. Every multiple in this note is struck on order value or on
+        EBITDA, never on consolidated revenue.</p>
 
-  <div class="th-card"><div class="n">CALL 06 · CONTRARIAN</div><div class="t">The DCF does not support this call, and we say so</div>
-  <div class="d">₹238 against a ₹242.87 price, with 76% of value in terminal. <b>A seven-year DCF that terminalises a business still compounding EBITDA in the mid-teens in FY33 systematically understates it.</b> We weight it 30% and say why rather than tuning it until it agrees.</div></div>
-</div>
-</section><section class="sec" id="s2"><div class="sec-head rv"><span class="sec-mn">02</span><h2 class="sec-title">The business</h2><span class="sec-meta">Business overview</span></div>
-<div class="rv">
-<p class="body">Eternal Limited, renamed from Zomato in March 2025, operates four reportable segments. In the December 2025 quarter they contributed ₹2,676 crore, ₹12,256 crore, ₹1,070 crore and ₹300 crore of external revenue respectively — food ordering and delivery, quick commerce, Hyperpure B2B supplies, and going-out.</p>
+        <span class="tag">Segment economics at FY30E</span>
+        <p>By FY30E we model quick commerce at 5.1% of order value, food delivery at
+        7.1%, going-out at 5.0% and Hyperpure at 4.0% of revenue. Those four margin profiles,
+        applied to four different growth rates, are the reason this note values the company by parts rather
+        than in aggregate.</p>
+      </div>
+    </div>
+  </section>
+  <section class="sec" id="s3">
+    <div class="sec-head rv">
+      <span class="sec-mn">03</span>
+      <h2 class="sec-title">A three-player market with six players in it</h2>
+      <span class="sec-meta">Industry structure</span>
+    </div>
 
-<p class="body">That revenue split is misleading and it is worth dismantling immediately. <b>Blinkit moved from a marketplace to an inventory-ownership model from the first quarter of FY26</b>, and by Q3 roughly 90% of its net order value was transacted on its own inventory. Under a marketplace model the platform books commission; under 1P it books the full value of goods sold. Nothing about the economics changed. Reported consolidated revenue grew 202% year on year; management's own like-for-like adjusted revenue grew 64%. Any analysis anchored on reported revenue growth for this company in FY26 is measuring an accounting policy.</p>
+    <div class="rv">
+      <p class="body">India's quick commerce market sits at roughly a ₹1.3 lakh crore annualised run-rate on
+      category GMV, roughly doubling year on year. Blinkit holds about <b>48% of national order value</b>, with
+      Instamart near 24% and Zepto near 22% as of the December 2025 quarter. On a three-player structure those
+      shares are stable and the category earns a spread. That is not the structure the market currently has.</p>
 
-<p class="body">The segment that matters for value is quick commerce. It was 25.7% of FY25 revenue and, on our FY30E forecast, 100.0% — we mean by then it carries 61.1% of the sum-of-the-parts enterprise value. Food delivery carries 29.5%. Everything else is rounding, though District has genuine option value.</p>
-</div>
+      <p class="body">Reliance, Walmart-backed Flipkart and Amazon all entered during CY2025. None of them needs
+      quick commerce to earn its cost of capital in the next five years; all three need it to defend a
+      catchment. <b>The category's economics are proven. The industry's economics are not yet defended.</b>
+      That single sentence is the bear case, and it is why our terminal margin stops at
+      6.4% rather than the double digits a genuine oligopoly would support.</p>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>Segment revenue from external customers, ₹ crore (as reported)</caption><thead><tr><th>Segment</th><th>FY25A</th><th>Q2 FY26</th><th>Q3 FY26</th><th>9M FY26</th></tr></thead><tbody><tr><td class="co">India food ordering &amp; delivery</td><td class="num">8,080</td><td class="num">2,485</td><td class="num">2,676</td><td class="num">7,422</td></tr><tr><td class="co">Quick commerce (Blinkit)</td><td class="num">5,206</td><td class="num">9,891</td><td class="num">12,256</td><td class="num">24,547</td></tr><tr><td class="co">Hyperpure supplies (B2B)</td><td class="num">6,196</td><td class="num">1,013</td><td class="num">1,070</td><td class="num">4,388</td></tr><tr><td class="co">Going-out (District)</td><td class="num">731</td><td class="num">195</td><td class="num">300</td><td class="num">692</td></tr><tr><td class="co">All other segments</td><td class="num">30</td><td class="num">6</td><td class="num">13</td><td class="num">23</td></tr><tr class="tot"><td class="co">Total revenue from operations</td><td class="num">20,243</td><td class="num">13,590</td><td class="num">16,315</td><td class="num">37,072</td></tr></tbody></table><div class="tbl-note">Source: Eternal Limited consolidated results for the quarter and nine months ended 31 December 2025, reviewed by Deloitte Haskins &amp; Sells and filed 21 January 2026. Every column sums to the reported total exactly.</div></div>
+      <p class="body">Eternal's structural advantage in that fight is not product. It is funding capacity.
+      Food delivery generates a 5.3% margin on order value in FY26E and throws off cash while
+      Blinkit consumes it, and the group carries ₹18,911 crore of net cash after lease liabilities.
+      A competitor without an annuity segment funds the same subsidy war from equity issuance.</p>
+    </div>
 
-<div class="rv">
-<h3 class="sub">Leadership changed hands in the middle of this</h3>
-<p class="body">Deepinder Goyal resigned as Managing Director and Chief Executive effective 1 February 2026. <b>Albinder Singh Dhindsa, founder and chief executive of Blinkit, became Group CEO</b> while stating that Blinkit remains his first priority. Read structurally rather than dramatically, that is the board formalising what the numbers already showed: the quick-commerce business is the company now, and the person who built it is running the group. It also concentrates key-person risk in one individual at precisely the moment the competitive fight intensifies. We treat it as neutral-to-positive on strategy and negative on governance concentration, and we list it under risks.</p>
-</div>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Competitive position — <b>quick commerce, quarter ended December 2025</b></caption>
+        <thead><tr><th>Platform</th><th>National share<br>of order value</th><th>Position</th></tr></thead>
+        <tbody>
+          <tr class="tot"><td class="co">Blinkit (Eternal)</td><td class="num">48%</td><td>Order value ₹13,300 cr in the quarter, up 121% year on year, from 2,027 dark stores at ₹7.52 lakh per store per day. First quarter of positive segment adjusted EBITDA.</td></tr>
+          <tr><td class="co">Instamart (Swiggy)</td><td class="num">24%</td><td>Scaling on a similar curve four to six quarters behind, funded from a loss-making group P&amp;L.</td></tr>
+          <tr><td class="co">Zepto</td><td class="num">22%</td><td>Unlisted and IPO-bound. Must fund the gap from private capital at a last mark near ₹63,000 crore.</td></tr>
+          <tr><td class="co">Reliance · Flipkart · Amazon</td><td class="num">Residual</td><td>All three entered during CY2025. Strategic entrants with no payback horizon — the source of the terminal-margin risk.</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Share and Blinkit operating metrics per company disclosure for the December 2025
+      quarter. Entrant share is not separately disclosed. Source: Company disclosures, Aditya Nair Research.</div>
+    </div>
 
-<div class="callout rv">
-  <div class="ch">Definitional note: GOV, NOV and adjusted EBITDA</div>
-  <p><b>GOV</b> is gross order value including taxes and delivery charges, before platform-funded discounts. <b>NOV</b> is net of them, and is the basis on which Eternal reports both Blinkit and food delivery. Swiggy reports Instamart on GOV, so the two are not comparable without adjustment. <b>Adjusted EBITDA</b> as Eternal defines it adds back share-based payment and deducts Ind AS 116 rent paid — so reversing to reported EBITDA means <em>subtracting</em> the ESOP charge and <em>adding</em> the rent back, which is the opposite of the instinct. The check on our model is Q3 FY26: adjusted EBITDA ₹364 crore less ₹227 crore of share-based payment plus ₹231 crore of rent gives ₹368 crore, against ₹367 crore derived independently from reported profit before tax.</p>
-</div>
-</section><section class="sec" id="s3"><div class="sec-head rv"><span class="sec-mn">03</span><h2 class="sec-title">Blinkit: the engine</h2><span class="sec-meta">Quick commerce</span></div>
-<div class="rv">
-<p class="body">Blinkit is modelled bottom-up from a dark-store roll-forward: closing store count, average stores in operation, and net order value per store per day. There is no top-down growth rate anywhere in the build, because the top-down number is exactly what a reader cannot check.</p>
+    <div class="callout risk rv">
+      <div class="ch">The structural risk, stated plainly</div>
+      <p>If deep-pocketed entrants hold national share flat by subsidising delivery fees for four to six more
+      years, mature-cluster margin never becomes group margin. Our bear case models exactly this:
+      2,000-odd fewer stores, throughput stalling near ₹10 lakh per store per day and margin
+      capped at 3.7% — which produces <b>₹125 per share</b>, a
+      -48.4% outcome from here.</p>
+    </div>
+  </section>
+  <section class="sec" id="s4">
+    <div class="sec-head rv">
+      <span class="sec-mn">04</span>
+      <h2 class="sec-title">The Blinkit engine</h2>
+      <span class="sec-meta">Revenue build &amp; unit economics</span>
+    </div>
 
-<p class="body"><b>The calibration is the point.</b> FY25 net order value of ₹22,371 crore over 823 average stores implies ₹6.71 lakh per store per day. The nine months of FY26 already banked — ₹34,182 crore — plus a fourth quarter of roughly ₹14,400 crore, or 8% sequential growth on the ₹13,300 crore December print, gives ₹48,566 crore on 1,800 average stores, or ₹7.39 lakh. <b>The network more than doubled and productivity went up, not down.</b> Every forecast year in this model rests on that observation holding.</p>
-</div>
+    <div class="rv">
+      <p class="body">The revenue build is a store roll-forward, not a growth rate. Average stores in operation
+      multiplied by 365, multiplied by net order value per store per day, gives segment order value. Revenue is
+      order value times a monetisation rate. Segment adjusted EBITDA is order value times a margin. Three
+      assumptions per year drive roughly 61.1% of the equity value.</p>
+    </div>
 
-<div class="chart rv"><div class="chart-h"><span>Blinkit net order value, ₹ crore</span><b>FY25A → FY33E</b></div><div class="chart-b"><div class="row"><div class="lb">FY25A</div><div class="tr"><span class="br dim" data-w="7" style="width:7%"></span></div><div class="vl num">22,373</div></div>
-<div class="row"><div class="lb">FY26E</div><div class="tr"><span class="br" data-w="15" style="width:15%"></span></div><div class="vl num">48,566</div></div>
-<div class="row"><div class="lb">FY27E</div><div class="tr"><span class="br" data-w="26" style="width:26%"></span></div><div class="vl num">80,738</div></div>
-<div class="row"><div class="lb">FY28E</div><div class="tr"><span class="br hi" data-w="37" style="width:37%"></span></div><div class="vl num">117,895</div></div>
-<div class="row"><div class="lb">FY29E</div><div class="tr"><span class="br hi" data-w="50" style="width:50%"></span></div><div class="vl num">158,638</div></div>
-<div class="row"><div class="lb">FY30E</div><div class="tr"><span class="br hi" data-w="63" style="width:63%"></span></div><div class="vl num">200,312</div></div>
-<div class="row"><div class="lb">FY31E</div><div class="tr"><span class="br hi" data-w="76" style="width:76%"></span></div><div class="vl num">241,046</div></div>
-<div class="row"><div class="lb">FY32E</div><div class="tr"><span class="br hi" data-w="89" style="width:89%"></span></div><div class="vl num">279,772</div></div>
-<div class="row"><div class="lb">FY33E</div><div class="tr"><span class="br hi" data-w="100" style="width:100%"></span></div><div class="vl num">315,533</div></div>
-</div><div class="chart-f">Source: FY25 and 9M FY26 net order value as disclosed; FY26E onward is the model's store roll-forward × productivity build. FY26E implies a Q4 of roughly ₹14,400 crore.</div></div>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Blinkit dark-store roll-forward — <b>FY25A to FY35E</b></caption>
+        <thead><tr><th>Period</th><th>Stores<br>(closing)</th><th>NOV / store<br>/ day (₹ lakh)</th>
+        <th>Segment NOV<br>(₹ cr)</th><th>Adj. EBITDA<br>margin on NOV</th><th>Adj. EBITDA<br>(₹ cr)</th></tr></thead>
+        <tbody>
+          <tr><td class="co">FY25A</td><td class="num">1,301</td><td class="num">6.71</td><td class="num">22,373</td><td class="num">-3.3%</td><td class="num">(738)</td></tr>
+          <tr><td class="co">FY26E</td><td class="num">2,300</td><td class="num">7.39</td><td class="num">48,566</td><td class="num">-0.6%</td><td class="num">(291)</td></tr>
+          <tr><td class="co">FY27E</td><td class="num">3,300</td><td class="num">7.90</td><td class="num">80,738</td><td class="num">2.0%</td><td class="num">1,615</td></tr>
+          <tr><td class="co">FY28E</td><td class="num">4,300</td><td class="num">8.50</td><td class="num">1,17,895</td><td class="num">3.4%</td><td class="num">4,008</td></tr>
+          <tr><td class="co">FY29E</td><td class="num">5,200</td><td class="num">9.15</td><td class="num">1,58,638</td><td class="num">4.4%</td><td class="num">6,980</td></tr>
+          <tr><td class="co">FY30E</td><td class="num">6,000</td><td class="num">9.80</td><td class="num">2,00,312</td><td class="num">5.1%</td><td class="num">10,216</td></tr>
+          <tr><td class="co">FY33E</td><td class="num">7,800</td><td class="num">11.45</td><td class="num">3,15,533</td><td class="num">6.0%</td><td class="num">18,932</td></tr>
+          <tr><td class="co">FY35E</td><td class="num">8,500</td><td class="num">12.30</td><td class="num">3,74,873</td><td class="num">6.4%</td><td class="num">23,992</td></tr>
+          
+        </tbody>
+      </table>
+      <div class="tbl-note">Store counts and throughput are analyst assumptions; FY25A is reported.
+      Source: Company disclosures, Aditya Nair Research estimates.</div>
+    </div>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>Blinkit dark-store roll-forward — the whole business in one table</caption><thead><tr><th>Driver</th><th>FY25A</th><th>FY26E</th><th>FY27E</th><th>FY28E</th><th>FY29E</th><th>FY30E</th><th>FY31E</th><th>FY32E</th><th>FY33E</th></tr></thead><tbody><tr><td class="co">Dark stores, closing</td><td class="num">1,301</td><td class="num">2,300</td><td class="num">3,300</td><td class="num">4,300</td><td class="num">5,200</td><td class="num">6,000</td><td class="num">6,700</td><td class="num">7,300</td><td class="num">7,800</td></tr><tr><td class="co">NOV per store per day (₹ lakh)</td><td class="num">6.71</td><td class="num">7.39</td><td class="num">7.90</td><td class="num">8.50</td><td class="num">9.15</td><td class="num">9.80</td><td class="num">10.40</td><td class="num">10.95</td><td class="num">11.45</td></tr><tr class="grp"><td colspan="10">Outputs</td></tr><tr><td class="co">Net order value (₹ cr)</td><td class="num">22,373</td><td class="num">48,566</td><td class="num">80,738</td><td class="num">117,895</td><td class="num">158,638</td><td class="num">200,312</td><td class="num">241,046</td><td class="num">279,772</td><td class="num">315,533</td></tr><tr><td class="co">NOV growth, YoY</td><td class="num">–</td><td class="num">117.1%</td><td class="num">66.2%</td><td class="num">46.0%</td><td class="num">34.6%</td><td class="num">26.3%</td><td class="num">20.3%</td><td class="num">16.1%</td><td class="num">12.8%</td></tr><tr><td class="co">Adj. EBITDA margin (% of NOV)</td><td class="num">-3.3%</td><td class="num">-0.6%</td><td class="num">2.0%</td><td class="num">3.4%</td><td class="num">4.4%</td><td class="num">5.1%</td><td class="num">5.5%</td><td class="num">5.8%</td><td class="num">6.0%</td></tr><tr class="tot"><td class="co">Adjusted EBITDA (₹ cr)</td><td class="num">-732</td><td class="num">-291</td><td class="num">1,615</td><td class="num">4,008</td><td class="num">6,980</td><td class="num">10,216</td><td class="num">13,258</td><td class="num">16,227</td><td class="num">18,932</td></tr></tbody></table><div class="tbl-note">Management guides 3,000 stores by March 2027 and 3,500–4,000 if competitive intensity moderates; we model 3,300 in FY27E. Margin guidance is 5–6% of NOV at steady state, with Delhi NCR already at ~3.5% and Gurgaon+Noida at ~5%. We reach 5.1% only in FY30E and the top of the band in FY33E.</div></div>
+    <div class="chart rv">
+      <div class="chart-h"><span>Blinkit net order value, ₹ crore</span><b>FY25A → FY35E</b></div>
+      <div class="chart-b">
+        <div class="row"><div class="lb">FY25A</div><div class="tr"><span class="br dim" data-w="6" style="width:6%"></span></div><div class="vl num">22,373</div></div>
+        <div class="row"><div class="lb">FY26E</div><div class="tr"><span class="br dim" data-w="13" style="width:13%"></span></div><div class="vl num">48,566</div></div>
+        <div class="row"><div class="lb">FY27E</div><div class="tr"><span class="br" data-w="22" style="width:22%"></span></div><div class="vl num">80,738</div></div>
+        <div class="row"><div class="lb">FY28E</div><div class="tr"><span class="br" data-w="31" style="width:31%"></span></div><div class="vl num">1,17,895</div></div>
+        <div class="row"><div class="lb">FY29E</div><div class="tr"><span class="br" data-w="42" style="width:42%"></span></div><div class="vl num">1,58,638</div></div>
+        <div class="row"><div class="lb">FY30E</div><div class="tr"><span class="br hi" data-w="53" style="width:53%"></span></div><div class="vl num">2,00,312</div></div>
+        <div class="row"><div class="lb">FY35E</div><div class="tr"><span class="br hi" data-w="100" style="width:100%"></span></div><div class="vl num">3,74,873</div></div>
+        
+      </div>
+      <div class="chart-f">Order value, not revenue — the like-for-like measure across an owned-inventory
+      model. Source: Aditya Nair Research estimates.</div>
+    </div>
 
-<div class="rv">
-<h3 class="sub">Why we do not model faster</h3>
-<p class="body">Blinkit added 211 net stores in the December quarter against roughly 280 guided, held back by GRAP construction restrictions in Delhi NCR and festive operational load. Management says the shortfall opens in Q4. We take that at face value but do not extrapolate the guided stretch case: our FY27E of 3,300 stores sits 10% above the firm 3,000 guidance and 18% below the 4,000 conditional case. <b>Margin is where we are most deliberately conservative.</b> Reaching 6.0% of NOV only in FY33E, seven years out, when two mature clusters are already at 3.5% and 5% today, is not an aggressive assumption. It is close to the opposite.</p>
+    <div class="callout rv">
+      <div class="ch">The two numbers that decide this stock</div>
+      <p><b>Stores and throughput.</b> Holding everything else constant, a 10% shortfall in FY30E store count
+      costs roughly ₹28 per share; a ₹1 lakh shortfall in NOV per store per day costs materially more,
+      because it compresses margin and order value simultaneously. This is why the scenario analysis in
+      section 08 flexes precisely these two variables rather than a generic growth haircut.</p>
+    </div>
+  </section>
+  <section class="sec" id="s5">
+    <div class="sec-head rv">
+      <span class="sec-mn">05</span>
+      <h2 class="sec-title">Five years, three statements</h2>
+      <span class="sec-meta">Financial history · FY21A–FY25A</span>
+    </div>
 
-<h3 class="sub">The thing that would change our mind</h3>
-<p class="body">Productivity per store is the load-bearing beam. If Blinkit's next 2,000 stores are structurally worse than the last 2,000 — smaller baskets, lower frequency, similar fixed cost — then ₹9.80 lakh per store per day in FY30E is wrong and so is everything downstream of it. The honest counter-evidence is that management has flagged tier-2 dilution as a live concern, and that Delhi NCR still growing net order value at roughly 55% on a broadly static store base is the only public proof that density deepens rather than exhausts. <b>We watch NOV per store, quarterly, before anything else.</b></p>
-</div>
-</section><section class="sec" id="s4"><div class="sec-head rv"><span class="sec-mn">04</span><h2 class="sec-title">Food delivery: the funder</h2><span class="sec-meta">Food delivery</span></div>
-<div class="rv">
-<p class="body">Food delivery is the least discussed and most valuable-per-rupee-of-capital part of this company. In the December quarter it produced <b>₹531 crore of adjusted EBITDA at a 5.4% margin on net order value — an all-time high</b> — on net order value growing 16.6% year on year and gross order value growing 21.3%.</p>
+    <div class="rv">
+      <p class="body">The post-IPO history matters because it dates the inflection precisely. Revenue compounded
+      from ₹1,994 crore in FY21A to ₹20,243 crore in FY25A — a
+      78% CAGR. Reported EBITDA crossed zero in
+      <b>FY24A</b>, at ₹43 crore, and operating cash flow turned positive in the same year.
+      Everything before that is a funding story; everything after is an operating one.</p>
 
-<p class="body">Absolute segment NOV is not separately disclosed. It is derivable: ₹531 crore at a stated 5.4% margin gives ₹9,833 crore. The same arithmetic on going-out gives ₹2,574 crore. Those two plus the disclosed ₹13,300 crore of quick-commerce NOV sum to ₹25,707 crore against the disclosed B2C total of ₹25,732 crore — <b>a 0.1% gap explained entirely by rounding in the published margins.</b> The reconciliation is carried as a live check on the model's Summary tab, because the entire revenue build rests on it.</p>
+      <p class="body">The line to watch is the cash conversion cycle. It has run structurally negative for the
+      entire period — <b>(513) days in FY21A narrowing to (54) days in FY25A</b>
+      — because the business collects from consumers instantly and pays suppliers on terms. Growth is
+      self-funding at the working-capital line. The narrowing is not deterioration; it is the mix shifting
+      toward owned inventory, which carries stock but still collects on delivery.</p>
+    </div>
 
-<p class="body">Two quarters of accelerating growth off the 13.1% trough in Q1 FY26 is the fact that has not been priced. Management's framing is deliberately unexciting — growth "inches up gradually towards 20%" with no windfall catalyst — and we model 17% in FY27E and FY28E, inside that. Monetisation rises through advertising and platform fee rather than through restaurant take-rate increases, which we assume are capped by competitive and regulatory tolerance.</p>
-</div>
+    <div class="chart rv">
+      <div class="chart-h"><span>Revenue from operations, ₹ crore</span><b>FY21A → FY25A</b></div>
+      <div class="chart-b">
+        <div class="row"><div class="lb">FY21A</div><div class="tr"><span class="br dim" data-w="10" style="width:10%"></span></div><div class="vl num">1,994</div></div>
+        <div class="row"><div class="lb">FY22A</div><div class="tr"><span class="br dim" data-w="21" style="width:21%"></span></div><div class="vl num">4,192</div></div>
+        <div class="row"><div class="lb">FY23A</div><div class="tr"><span class="br dim" data-w="35" style="width:35%"></span></div><div class="vl num">7,079</div></div>
+        <div class="row"><div class="lb">FY24A</div><div class="tr"><span class="br hi" data-w="60" style="width:60%"></span></div><div class="vl num">12,114</div></div>
+        <div class="row"><div class="lb">FY25A</div><div class="tr"><span class="br hi" data-w="100" style="width:100%"></span></div><div class="vl num">20,243</div></div>
+        
+      </div>
+      <div class="chart-f">Reported Ind AS consolidated. Source: Company annual reports.</div>
+    </div>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>Food delivery: margin compounding on a mature base</caption><thead><tr><th>Metric</th><th>FY25A</th><th>FY26E</th><th>FY27E</th><th>FY28E</th><th>FY29E</th><th>FY30E</th><th>FY31E</th><th>FY32E</th><th>FY33E</th></tr></thead><tbody><tr><td class="co">Net order value (₹ cr)</td><td class="num">33,300</td><td class="num">38,300</td><td class="num">44,811</td><td class="num">52,429</td><td class="num">60,293</td><td class="num">68,131</td><td class="num">75,626</td><td class="num">83,188</td><td class="num">90,675</td></tr><tr><td class="co">NOV growth, YoY</td><td class="num">–</td><td class="num">15.0%</td><td class="num">17.0%</td><td class="num">17.0%</td><td class="num">15.0%</td><td class="num">13.0%</td><td class="num">11.0%</td><td class="num">10.0%</td><td class="num">9.0%</td></tr><tr><td class="co">Adj. EBITDA margin (% of NOV)</td><td class="num">4.8%</td><td class="num">5.3%</td><td class="num">5.9%</td><td class="num">6.4%</td><td class="num">6.8%</td><td class="num">7.1%</td><td class="num">7.3%</td><td class="num">7.4%</td><td class="num">7.5%</td></tr><tr class="tot"><td class="co">Adjusted EBITDA (₹ cr)</td><td class="num">1,598</td><td class="num">2,030</td><td class="num">2,644</td><td class="num">3,355</td><td class="num">4,100</td><td class="num">4,837</td><td class="num">5,521</td><td class="num">6,156</td><td class="num">6,801</td></tr></tbody></table><div class="tbl-note">Q3 FY26 NOV of ₹9,833 crore is derived from the disclosed ₹531 crore adjusted EBITDA at the disclosed 5.4% margin. Growth of 17% sits inside management's stated trajectory towards 20%.</div></div>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Reported historicals — <b>income statement, balance sheet and cash flow, FY21A–FY25A</b></caption>
+        <thead><tr><th>₹ crore unless stated</th><th>FY21A</th><th>FY22A</th><th>FY23A</th><th>FY24A</th><th>FY25A</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="6">Income statement</td></tr>
+          <tr><td class="co">Revenue from operations</td><td class="num">1,994</td><td class="num">4,192</td><td class="num">7,079</td><td class="num">12,114</td><td class="num">20,243</td></tr>
+          <tr><td class="co">EBITDA (Ind AS reported)</td><td class="num">(467)</td><td class="num">(1,851)</td><td class="num">(1,211)</td><td class="num">43</td><td class="num">637</td></tr>
+          <tr><td class="co">EBITDA margin on revenue</td><td class="num">-23.4%</td><td class="num">-44.2%</td><td class="num">-17.1%</td><td class="num">0.4%</td><td class="num">3.1%</td></tr>
+          <tr class="tot"><td class="co">Profit after tax</td><td class="num">(816)</td><td class="num">(1,222)</td><td class="num">(971)</td><td class="num">351</td><td class="num">527</td></tr>
+          <tr class="grp"><td colspan="6">Balance sheet</td></tr>
+          <tr><td class="co">Total equity</td><td class="num">7,644</td><td class="num">16,505</td><td class="num">19,460</td><td class="num">20,413</td><td class="num">30,317</td></tr>
+          <tr><td class="co">Total assets</td><td class="num">8,703</td><td class="num">17,326</td><td class="num">21,599</td><td class="num">23,356</td><td class="num">35,623</td></tr>
+          <tr class="grp"><td colspan="6">Cash flow</td></tr>
+          <tr><td class="co">Cash from operating activities</td><td class="num">(1,018)</td><td class="num">(693)</td><td class="num">(844)</td><td class="num">646</td><td class="num">308</td></tr>
+          <tr><td class="co">Implied capital expenditure</td><td class="num">10</td><td class="num">57</td><td class="num">101</td><td class="num">202</td><td class="num">931</td></tr>
+          <tr class="tot"><td class="co">Free cash flow (CFO less capex)</td><td class="num">(1,028)</td><td class="num">(750)</td><td class="num">(945)</td><td class="num">444</td><td class="num">(623)</td></tr>
+          <tr class="grp"><td colspan="6">Derived</td></tr>
+          <tr><td class="co">Cash conversion cycle (days)</td><td class="num">(513)</td><td class="num">(256)</td><td class="num">(132)</td><td class="num">(77)</td><td class="num">(54)</td></tr>
+          <tr><td class="co">Return on capital employed</td><td class="num">-12.0%</td><td class="num">-13.0%</td><td class="num">-6.0%</td><td class="num">1.0%</td><td class="num">3.0%</td></tr>
+          
+        </tbody>
+      </table>
+      <div class="tbl-note">Zomato listed 23 July 2021; FY22 is the first annual report as a listed company and
+      FY21 the prospectus comparative. Balance-sheet detail below the aggregate level is disclosed by line only
+      from FY25A. Source: Company annual reports.</div>
+    </div>
 
-<div class="callout good rv">
-  <div class="ch">Why this segment carries 29.5% of the sum-of-the-parts</div>
-  <p>A duopoly with roughly 60% share, negative capital employed, low-teens-to-mid-teens net order value growth, and a margin that has risen in every recent quarter. We value it at 30× FY30E adjusted EBITDA, which is ₹145,120 crore of enterprise value, or 2.13× FY30E net order value. <b>That is the second most attackable multiple in this note</b> — 30× is above where global food-delivery peers have traded through a full cycle. At 25× the sum-of-the-parts falls by roughly ₹15 a share.</p>
-</div>
-</section><section class="sec" id="s5"><div class="sec-head rv"><span class="sec-mn">05</span><h2 class="sec-title">District &amp; Hyperpure</h2><span class="sec-meta">Going-out & B2B</span></div>
-<div class="rv">
-<p class="body"><b>District</b> is the going-out business — dining out, movies, live events — built on Zomato's restaurant graph and the ₹2,014 crore acquisition of Paytm's movie-ticketing and events assets in 2024. In Q3 FY26 net order value grew 20% year on year while the adjusted EBITDA loss widened to ₹121 crore, or −4.7% of NOV, from ₹63 crore, on upfront spend for live-event intellectual property and the launch of District Pass.</p>
+    <div class="callout rv">
+      <div class="ch">Ind AS 116 and the capital-light illusion</div>
+      <p>Lease liabilities rose from ₹527 crore at FY21A to ₹2,045 crore at FY25A and we model
+      ₹12,099 crore by FY30E as the store estate scales. Reported capex looks modest — 4.6% of
+      revenue in FY25A — precisely because the boxes are leased, not bought. <b>Any ROIC computed before the
+      lease book flatters this business by roughly a third.</b> Ours is computed after it.</p>
+    </div>
+  </section>
+  <section class="sec" id="s6">
+    <div class="sec-head rv">
+      <span class="sec-mn">06</span>
+      <h2 class="sec-title">Forecast architecture</h2>
+      <span class="sec-meta">FY26E–FY35E</span>
+    </div>
 
-<p class="body">Management guides losses down sequentially to breakeven within four to six quarters, and a $3 billion net order value business at a 5% margin by FY30. Our growth path compounds ₹9,900 crore in FY26E to ₹28,123 crore in FY30E, which <em>is</em> that target — we have not independently forecast it so much as tested whether the stated ambition is arithmetically reachable from the current base. It is, at a 30% compound rate, which for a business growing 20% today with a new product cycle is demanding but not fanciful.</p>
+    <div class="rv">
+      <p class="body">We forecast ten years explicitly to FY35E rather than the conventional five. The reason is
+      mechanical: a business still opening a thousand stores a year has free cash flow that is not
+      representative of its steady state, so a short explicit window pushes an unreasonable share of value into
+      the terminal calculation. At nine discounted years the terminal value is
+      <b>70% of enterprise value</b>. At seven it was 76%. The extension does not manufacture
+      value; it relocates it from an assumption into a forecast that can be checked.</p>
 
-<p class="body"><b>Hyperpure</b> requires an explanation before it requires a forecast. Reported segment revenue falls in FY26 — ₹5,558 crore against ₹6,196 crore — and that looks like a shrinking business. It is not. Blinkit's move to own inventory removed sales that previously routed through third-party sellers on the platform. Restaurant-supply revenue, the actual business, <b>grew 33% year on year in the December quarter</b>, and the segment turned adjusted EBITDA positive at ₹1 crore. Management guides to $1 billion of topline within three years at a 4–5% margin.</p>
-</div>
+      <p class="body">Margins fade rather than inflect. Blinkit reaches 5.1% on order value by
+      FY30E and 6.4% by FY35E. Store additions taper from
+      1,000 a year at peak to 300 by
+      FY35E. Food delivery order-value growth decays from 17% to 7.5%. Nothing in the
+      forecast requires an acceleration.</p>
+    </div>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>District and Hyperpure: option value, sized honestly</caption><thead><tr><th>Metric</th><th>FY25A</th><th>FY26E</th><th>FY27E</th><th>FY28E</th><th>FY29E</th><th>FY30E</th><th>FY31E</th><th>FY32E</th><th>FY33E</th></tr></thead><tbody><tr class="grp"><td colspan="10">Going-out (District)</td></tr><tr><td class="co">Net order value (₹ cr)</td><td class="num">6,618</td><td class="num">9,900</td><td class="num">13,860</td><td class="num">18,295</td><td class="num">23,052</td><td class="num">28,123</td><td class="num">33,186</td><td class="num">38,163</td><td class="num">42,743</td></tr><tr><td class="co">Adjusted EBITDA (₹ cr)</td><td class="num">-33</td><td class="num">-396</td><td class="num">-139</td><td class="num">274</td><td class="num">692</td><td class="num">1,406</td><td class="num">1,825</td><td class="num">2,290</td><td class="num">2,565</td></tr><tr class="grp"><td colspan="10">Hyperpure (B2B supplies)</td></tr><tr><td class="co">Revenue (₹ cr)</td><td class="num">6,196</td><td class="num">5,558</td><td class="num">7,003</td><td class="num">8,684</td><td class="num">10,421</td><td class="num">12,192</td><td class="num">13,899</td><td class="num">15,428</td><td class="num">16,816</td></tr><tr><td class="co">Adjusted EBITDA (₹ cr)</td><td class="num">-56</td><td class="num">0</td><td class="num">105</td><td class="num">217</td><td class="num">365</td><td class="num">488</td><td class="num">625</td><td class="num">694</td><td class="num">757</td></tr></tbody></table><div class="tbl-note">Together these two carry 9.4% of the sum-of-the-parts enterprise value. Other segments — Bistro, Nugget — are ascribed nil value.</div></div>
-</section><section class="sec" id="s6"><div class="sec-head rv"><span class="sec-mn">06</span><h2 class="sec-title">Competitive structure</h2><span class="sec-meta">Industry position</span></div>
-<div class="rv">
-<p class="body">On Datum Intelligence's 2025 data, <b>Blinkit holds roughly 48% of Indian quick-commerce net order value, against 24% for Instamart and 22% for Zepto.</b> The gap is not marketing. In the December quarter Blinkit turned adjusted EBITDA positive on ₹13,300 crore of net order value while Instamart lost ₹908 crore at the adjusted EBITDA line on ₹7,938 crore of gross order value, with 1,136 dark stores against Blinkit's 2,027.</p>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Forecast summary — <b>selected years, FY26E to FY35E</b></caption>
+        <thead><tr><th>₹ crore unless stated</th><th>FY26E</th><th>FY28E</th><th>FY30E</th><th>FY32E</th><th>FY35E</th></tr></thead>
+        <tbody>
+          <tr><td class="co">B2C net order value</td><td class="num">96,766</td><td class="num">1,88,619</td><td class="num">2,96,567</td><td class="num">4,01,124</td><td class="num">5,31,396</td></tr>
+          <tr><td class="co">&nbsp;&nbsp;of which Blinkit</td><td class="num">48,566</td><td class="num">1,17,895</td><td class="num">2,00,312</td><td class="num">2,79,772</td><td class="num">3,74,873</td></tr>
+          <tr><td class="co">Revenue from operations</td><td class="num">54,670</td><td class="num">1,34,814</td><td class="num">2,21,393</td><td class="num">3,04,104</td><td class="num">4,04,699</td></tr>
+          <tr class="tot"><td class="co">Adjusted EBITDA</td><td class="num">1,153</td><td class="num">7,655</td><td class="num">16,897</td><td class="num">25,417</td><td class="num">36,251</td></tr>
+          <tr><td class="co">Adj. EBITDA margin on order value</td><td class="num">1.2%</td><td class="num">4.1%</td><td class="num">5.7%</td><td class="num">6.3%</td><td class="num">6.8%</td></tr>
+          <tr><td class="co">EBIT</td><td class="num">(228)</td><td class="num">6,473</td><td class="num">15,687</td><td class="num">24,233</td><td class="num">34,771</td></tr>
+          <tr class="tot"><td class="co">Profit after tax</td><td class="num">383</td><td class="num">5,843</td><td class="num">14,126</td><td class="num">21,710</td><td class="num">33,846</td></tr>
+          <tr><td class="co">EPS (₹)</td><td class="num">₹0.40</td><td class="num">₹6.05</td><td class="num">₹14.64</td><td class="num">₹22.50</td><td class="num">₹35.07</td></tr>
+          <tr><td class="co">Free cash flow</td><td class="num">5,389</td><td class="num">8,897</td><td class="num">18,124</td><td class="num">26,305</td><td class="num">39,408</td></tr>
+          <tr><td class="co">Net cash after leases</td><td class="num">18,911</td><td class="num">27,159</td><td class="num">51,943</td><td class="num">92,373</td><td class="num">1,84,031</td></tr>
+          <tr><td class="co">Return on invested capital</td><td class="num">-0.9%</td><td class="num">33.9%</td><td class="num">77.3%</td><td class="num">107.6%</td><td class="num">144.6%</td></tr>
+          
+        </tbody>
+      </table>
+      <div class="tbl-note">Return on invested capital is computed on equity plus lease liabilities less cash,
+      so it rises sharply as the net cash pile grows against a small operating capital base — read it as
+      directional, not as a cross-company comparable.
+      Source: Aditya Nair Research estimates.</div>
+    </div>
+  </section>
+  <section class="sec" id="s7">
+    <div class="sec-head rv">
+      <span class="sec-mn">07</span>
+      <h2 class="sec-title">Valuation</h2>
+      <span class="sec-meta">DCF · SOTP · relative</span>
+    </div>
 
-<p class="body">The threat is not Swiggy. It is the balance sheets arriving behind it. Amazon Now, Flipkart Minutes and Reliance are all attacking the same catchments with capital that has no payback date, and Zepto raised at a $7 billion mark in late 2025 ahead of a filed IPO. <b>None of these entrants needs quick commerce to be profitable.</b> That is the structural risk, and it is why the stock de-rated through February rather than re-rating on a profit inflection.</p>
+    <h3 class="sub rv">Cost of capital</h3>
+    <div class="rv">
+      <p class="body">WACC is built up, not assumed. Peer betas are unlevered at each peer's own capital
+      structure and relevered at Eternal's, giving a relevered beta of <b>0.99</b>. Against a
+      6.8% 10-year G-Sec and a 6.0% India equity risk premium that produces a cost of
+      equity of 12.70%. With lease liabilities as the only debt at a 11.0% discount rate,
+      the blended <b>WACC is 12.70%</b> and terminal growth is set at 6.5%.</p>
+    </div>
 
-<p class="body">Our read is that the fight is survivable but expensive, and that Eternal's advantage is funding structure rather than execution. Food delivery generates roughly ₹2,030 crore of adjusted EBITDA in FY26E and there is ₹18,911 crore of net cash after lease liabilities on the balance sheet. Swiggy raised ₹10,000 crore in a QIP at ₹375 during the same quarter it lost ₹1,065 crore. <b>One of these companies funds expansion from operations and the other funds it from shareholders.</b> Over a five-year subsidy war that difference compounds.</p>
-</div>
+    <h3 class="sub rv">Discounted cash flow</h3>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>FCFF build — <b>nine-year explicit forecast, FY27E to FY35E</b></caption>
+        <thead><tr><th>Period</th><th>EBIT (₹ cr)</th><th>Free cash flow to firm (₹ cr)</th><th>Discount period</th></tr></thead>
+        <tbody>
+          <tr><td class="co">FY27E</td><td class="num">2,741</td><td class="num">3,146</td><td class="num">1</td></tr>
+          <tr><td class="co">FY28E</td><td class="num">6,473</td><td class="num">5,831</td><td class="num">2</td></tr>
+          <tr><td class="co">FY29E</td><td class="num">10,833</td><td class="num">9,664</td><td class="num">3</td></tr>
+          <tr><td class="co">FY30E</td><td class="num">15,687</td><td class="num">13,216</td><td class="num">4</td></tr>
+          <tr><td class="co">FY31E</td><td class="num">20,007</td><td class="num">15,850</td><td class="num">5</td></tr>
+          <tr><td class="co">FY32E</td><td class="num">24,233</td><td class="num">18,813</td><td class="num">6</td></tr>
+          <tr><td class="co">FY33E</td><td class="num">27,880</td><td class="num">21,438</td><td class="num">7</td></tr>
+          <tr><td class="co">FY34E</td><td class="num">31,401</td><td class="num">23,960</td><td class="num">8</td></tr>
+          <tr><td class="co">FY35E</td><td class="num">34,771</td><td class="num">26,361</td><td class="num">9</td></tr>
+          
+        </tbody>
+      </table>
+      <div class="tbl-note">FCFF = NOPAT + D&amp;A − capex + working-capital movement − lease principal
+      repayments. Valuation date 31 March 2026. Source: Aditya Nair Research estimates.</div>
+    </div>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>Listed comparables — and why the obvious multiple is the wrong one</caption><thead><tr><th>Company</th><th>Price (₹)</th><th>Mkt cap (₹ cr)</th><th>Ent. value (₹ cr)</th><th>Revenue (₹ cr)</th><th>EV / revenue</th></tr></thead><tbody><tr><td class="co">Swiggy Limited</td><td class="num">301.35</td><td class="num">83,173</td><td class="num">67,852</td><td class="num">21,081</td><td class="num">3.22×</td></tr><tr><td class="co">Avenue Supermarts (DMart)</td><td class="num">3,783.00</td><td class="num">246,171</td><td class="num">243,171</td><td class="num">68,821</td><td class="num">3.53×</td></tr><tr class="tot"><td class="co">Eternal Limited (FY26E)</td><td class="num">242.87</td><td class="num">234,379</td><td class="num">215,468</td><td class="num">54,670</td><td class="num">3.94×</td></tr></tbody></table><div class="tbl-note">Zepto was unlisted at the cut-off, last marked at $7bn (Reuters, 27 December 2025), with no publicly disclosed net order value from which to build a multiple. The peer set is two names by design, not omission.</div></div>
+    <div class="stats rv">
+      <div class="stat"><div class="v">67,840<em> cr</em></div><div class="k">PV of explicit FCFF</div></div>
+      <div class="stat"><div class="v">1,55,880<em> cr</em></div><div class="k">PV of terminal value</div><div class="d">70% of EV</div></div>
+      <div class="stat"><div class="v">2,23,720<em> cr</em></div><div class="k">Enterprise value</div></div>
+      <div class="stat"><div class="v amb">₹251</div><div class="k">DCF value per share</div></div>
+    </div>
 
-<div class="callout risk rv">
-  <div class="ch">EV/revenue is a category error here</div>
-  <p>Blinkit's move to own inventory grosses up Eternal's reported revenue roughly four-fold against the equivalent marketplace figure, while Instamart remains a marketplace inside Swiggy. Comparing the two on revenue multiples produces a number that looks precise and means nothing. <b>Order value is the only denominator measured the same way on both sides.</b> On that basis Eternal trades at 1.55× FY27E B2C net order value against roughly 0.87× for Swiggy — a 78% premium, which is the number worth arguing about.</p>
-</div>
-</section><section class="sec" id="s7"><div class="sec-head rv"><span class="sec-mn">07</span><h2 class="sec-title">Financial analysis</h2><span class="sec-meta">Historicals & forecast</span></div>
-<div class="rv">
-<p class="body">The model is a linked three-statement build with the balance sheet tying to zero in every period and no plugs. Its FY25A column reproduces the audited accounts exactly: revenue ₹20,242 crore, EBITDA ₹638 crore, depreciation and amortisation ₹863 crore, profit before tax ₹697 crore, profit after tax ₹528 crore. <b>The drivers were calibrated to reproduce reported history before being pointed forward</b>, which is the only way a forecast can be checked rather than believed.</p>
-</div>
+    <div class="rv">
+      <p class="body">The terminal value implies an exit multiple of <b>12.6x FY35E adjusted
+      EBITDA</b>. Cross-checked the other way, applying a 12.0x exit multiple instead of Gordon growth returns
+      ₹244 per share — ₹7 below the base case. The two methods
+      agree closely, which means the perpetual growth rate is not doing unreasonable work.</p>
+    </div>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>Consolidated financial summary, ₹ crore</caption><thead><tr><th>Line</th><th>FY25A</th><th>FY26E</th><th>FY27E</th><th>FY28E</th><th>FY29E</th><th>FY30E</th><th>FY31E</th><th>FY32E</th><th>FY33E</th></tr></thead><tbody><tr><td class="co">Revenue from operations</td><td class="num">20,242</td><td class="num">54,670</td><td class="num">95,618</td><td class="num">134,814</td><td class="num">177,602</td><td class="num">221,393</td><td class="num">263,807</td><td class="num">304,104</td><td class="num">341,460</td></tr><tr><td class="co">Revenue growth, YoY</td><td class="num">–</td><td class="num">170.1%</td><td class="num">74.9%</td><td class="num">41.0%</td><td class="num">31.7%</td><td class="num">24.7%</td><td class="num">19.2%</td><td class="num">15.3%</td><td class="num">12.3%</td></tr><tr class="grp"><td colspan="10">Profitability</td></tr><tr><td class="co">Adjusted EBITDA</td><td class="num">766</td><td class="num">1,153</td><td class="num">3,985</td><td class="num">7,655</td><td class="num">12,016</td><td class="num">16,897</td><td class="num">21,229</td><td class="num">25,417</td><td class="num">29,154</td></tr><tr><td class="co">Adj. EBITDA margin on B2C NOV</td><td class="num">1.2%</td><td class="num">1.2%</td><td class="num">2.9%</td><td class="num">4.1%</td><td class="num">5.0%</td><td class="num">5.7%</td><td class="num">6.1%</td><td class="num">6.3%</td><td class="num">6.5%</td></tr><tr><td class="co">EBITDA (Ind AS reported basis)</td><td class="num">638</td><td class="num">1,357</td><td class="num">4,656</td><td class="num">8,841</td><td class="num">13,735</td><td class="num">19,140</td><td class="num">23,978</td><td class="num">28,661</td><td class="num">32,864</td></tr><tr><td class="co">EBIT</td><td class="num">-225</td><td class="num">-228</td><td class="num">2,741</td><td class="num">6,473</td><td class="num">10,833</td><td class="num">15,687</td><td class="num">19,967</td><td class="num">24,083</td><td class="num">27,730</td></tr><tr class="tot"><td class="co">Profit after tax</td><td class="num">528</td><td class="num">383</td><td class="num">2,561</td><td class="num">5,843</td><td class="num">9,998</td><td class="num">14,126</td><td class="num">17,534</td><td class="num">21,598</td><td class="num">25,528</td></tr><tr><td class="co">EPS (₹)</td><td class="num">0.60</td><td class="num">0.40</td><td class="num">2.65</td><td class="num">6.05</td><td class="num">10.36</td><td class="num">14.64</td><td class="num">18.17</td><td class="num">22.38</td><td class="num">26.45</td></tr><tr class="grp"><td colspan="10">Returns and capital</td></tr><tr><td class="co">Return on equity</td><td class="num">–</td><td class="num">1.2%</td><td class="num">7.7%</td><td class="num">15.3%</td><td class="num">21.2%</td><td class="num">23.5%</td><td class="num">22.7%</td><td class="num">22.1%</td><td class="num">20.9%</td></tr><tr><td class="co">Return on invested capital</td><td class="num">-1.3%</td><td class="num">-0.9%</td><td class="num">13.8%</td><td class="num">33.9%</td><td class="num">56.8%</td><td class="num">77.3%</td><td class="num">91.7%</td><td class="num">108.2%</td><td class="num">122.4%</td></tr><tr><td class="co">Capital expenditure</td><td class="num">–</td><td class="num">1,257</td><td class="num">1,509</td><td class="num">1,780</td><td class="num">1,989</td><td class="num">2,203</td><td class="num">2,385</td><td class="num">2,549</td><td class="num">2,693</td></tr><tr><td class="co">Net cash after lease liabilities</td><td class="num">16,812</td><td class="num">18,911</td><td class="num">21,407</td><td class="num">27,159</td><td class="num">37,380</td><td class="num">51,943</td><td class="num">70,080</td><td class="num">92,422</td><td class="num">118,817</td></tr></tbody></table><div class="tbl-note">FY25A ties to the audited consolidated accounts. FY26E is nine months of reported actuals plus an estimated fourth quarter. Return on invested capital is computed on closing invested capital — equity plus lease liabilities less gross cash — so the dark-store build is visible rather than smoothed.</div></div>
+    <div class="tbl-wrap sensgrid rv">
+      <table class="dt">
+        <caption>Sensitivity — <b>value per share (₹), WACC × terminal growth</b></caption>
+        <thead><tr><th>WACC \ g</th><th>5.5%</th><th>6.0%</th><th>6.5%</th><th>7.0%</th><th>7.5%</th></tr></thead>
+        <tbody>
+          <tr><td class="co">11.70%</td><td class="num">267</td><td class="num">283</td><td class="num">302</td><td class="num">326</td><td class="num">355</td></tr>
+          <tr><td class="co">12.20%</td><td class="num">246</td><td class="num">259</td><td class="num">275</td><td class="num">293</td><td class="num">316</td></tr>
+          <tr><td class="co">12.70%</td><td class="num">228</td><td class="num">239</td><td class="num hl">251</td><td class="num">267</td><td class="num">285</td></tr>
+          <tr><td class="co">13.20%</td><td class="num">212</td><td class="num">221</td><td class="num">232</td><td class="num">244</td><td class="num">259</td></tr>
+          <tr><td class="co">13.70%</td><td class="num">198</td><td class="num">206</td><td class="num">215</td><td class="num">225</td><td class="num">237</td></tr>
+          
+        </tbody>
+      </table>
+      <div class="tbl-note">Base case highlighted. Live formulas throughout the model — no Excel data table,
+      so the grid cannot silently fail to recalculate.</div>
+    </div>
 
-<div class="chart rv"><div class="chart-h"><span>Consolidated adjusted EBITDA, ₹ crore</span><b>FY25A → FY33E</b></div><div class="chart-b"><div class="row"><div class="lb">FY25A</div><div class="tr"><span class="br dim" data-w="3" style="width:3%"></span></div><div class="vl num">766</div></div>
-<div class="row"><div class="lb">FY26E</div><div class="tr"><span class="br" data-w="4" style="width:4%"></span></div><div class="vl num">1,153</div></div>
-<div class="row"><div class="lb">FY27E</div><div class="tr"><span class="br" data-w="14" style="width:14%"></span></div><div class="vl num">3,985</div></div>
-<div class="row"><div class="lb">FY28E</div><div class="tr"><span class="br hi" data-w="26" style="width:26%"></span></div><div class="vl num">7,655</div></div>
-<div class="row"><div class="lb">FY29E</div><div class="tr"><span class="br hi" data-w="41" style="width:41%"></span></div><div class="vl num">12,016</div></div>
-<div class="row"><div class="lb">FY30E</div><div class="tr"><span class="br hi" data-w="58" style="width:58%"></span></div><div class="vl num">16,897</div></div>
-<div class="row"><div class="lb">FY31E</div><div class="tr"><span class="br hi" data-w="73" style="width:73%"></span></div><div class="vl num">21,229</div></div>
-<div class="row"><div class="lb">FY32E</div><div class="tr"><span class="br hi" data-w="87" style="width:87%"></span></div><div class="vl num">25,417</div></div>
-<div class="row"><div class="lb">FY33E</div><div class="tr"><span class="br hi" data-w="100" style="width:100%"></span></div><div class="vl num">29,154</div></div>
-</div><div class="chart-f">The shape of this curve, not its endpoint, is the investment case: two loss-making years of network build funded internally, then operating leverage on a fixed store base.</div></div>
+    <h3 class="sub rv">Sum-of-the-parts</h3>
+    <div class="rv">
+      <p class="body">This is the primary method and carries a 50% weight. Eternal is four businesses with
+      different growth, margin and capital profiles; a consolidated multiple on the blend is close to
+      meaningless. We value each segment on FY30E metrics and discount the total back four years at WACC.</p>
+    </div>
 
-<div class="rv">
-<h3 class="sub">Working capital is the assumption to attack</h3>
-<p class="body">Blinkit's 1P model puts inventory on the balance sheet, but it also puts supplier payables there, and grocery supply terms are longer than grocery inventory turns. At 14 inventory days against 30 payable days the business runs a <b>cash conversion cycle of roughly −8 days</b>, so growth releases cash rather than consuming it. By the end of our forecast that is worth ₹1,200–1,700 crore a year of free cash flow.</p>
-<p class="body">It is also the assumption most likely to be wrong. Management explicitly flagged a working-capital build in Q3 FY26 alongside the shift to 90% own inventory. Setting payable days equal to inventory days removes the entire benefit. <b>Both figures are flagged levers in the model and this is the first sensitivity a sceptical reader should run.</b></p>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Sum-of-the-parts on <b>FY30E segment metrics</b></caption>
+        <thead><tr><th>Segment</th><th>Metric</th><th>Metric value<br>(₹ cr)</th><th>Multiple</th><th>Enterprise<br>value (₹ cr)</th><th>% of total</th></tr></thead>
+        <tbody>
+          <tr><td class="co">Quick commerce (Blinkit)</td><td>EV / net order value</td><td class="num">2,00,312</td><td class="num">1.5x</td><td class="num">3,00,468</td><td class="num">61.1%</td></tr>
+          <tr><td class="co">Food delivery (Zomato)</td><td>EV / adjusted EBITDA</td><td class="num">4,837</td><td class="num">30.0x</td><td class="num">1,45,120</td><td class="num">29.5%</td></tr>
+          <tr><td class="co">Going-out (District)</td><td>EV / net order value</td><td class="num">28,123</td><td class="num">1.0x</td><td class="num">28,123</td><td class="num">5.7%</td></tr>
+          <tr><td class="co">Hyperpure (B2B supplies)</td><td>EV / revenue</td><td class="num">12,192</td><td class="num">1.5x</td><td class="num">18,288</td><td class="num">3.7%</td></tr>
+          <tr><td class="co">Other segments (Bistro, Nugget)</td><td>Loss-making; no value ascribed</td><td class="num">1,500</td><td class="num">0.0x</td><td class="num">0</td><td class="num">0.0%</td></tr>
+          <tr class="tot"><td class="co">Total enterprise value, FY30E basis</td><td></td><td></td><td></td><td class="num">4,91,999</td><td class="num">100.0%</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Discounted back four years at 12.70% gives ₹3,05,410 crore,
+      plus ₹18,911 crore of net cash, over 965.04 crore shares =
+      <b>₹336.07 per share</b>. Source: Aditya Nair Research estimates.</div>
+    </div>
 
-<h3 class="sub">Two things the model deliberately does not do</h3>
-<p class="body">It does not model ESOP dilution. The share-based payment charge runs through the income statement and is credited back to reserves, but the shares issued on exercise are not added to the count, which is held flat at 965.04 crore. At roughly ₹800–1,160 crore of annual charge, that is about 0.4–0.5% of the equity a year, so <b>the per-share values here are overstated by roughly 3–4% across the forecast.</b> A stated, quantified omission is better than a hidden one. It also never impairs the ₹10,510 crore of goodwill, predominantly the 2022 Blinkit purchase, which permanently flatters return on invested capital.</p>
-</div>
-</section><section class="sec" id="s8"><div class="sec-head rv"><span class="sec-mn">08</span><h2 class="sec-title">Valuation</h2><span class="sec-meta">DCF · SOTP · comps</span></div>
-<div class="rv">
-<p class="body">Three methods, weighted. We report all three including the one that disagrees with us.</p>
-</div>
+    <h3 class="sub rv">Relative cross-check</h3>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Listed peer comparables — <b>India consumer internet &amp; organised retail, 2 March 2026</b></caption>
+        <thead><tr><th>Company</th><th>EV (₹ cr)</th><th>Revenue (₹ cr)</th><th>EV / revenue</th><th>EV / EBITDA</th><th>EBITDA margin</th><th>Revenue growth</th></tr></thead>
+        <tbody>
+          <tr><td class="co">Swiggy Limited</td><td class="num">67,852</td><td class="num">21,081</td><td class="num">3.2x</td><td class="num">n.m.</td><td class="num">-15.5%</td><td class="num">52.0%</td></tr>
+          <tr><td class="co">Avenue Supermarts (DMart)</td><td class="num">2,43,171</td><td class="num">68,821</td><td class="num">3.5x</td><td class="num">44.2x</td><td class="num">8.0%</td><td class="num">16.0%</td></tr>
+          <tr><td class="co">FSN E-Commerce Ventures (Nykaa)<sup>†</sup></td><td class="num">61,000</td><td class="num">9,200</td><td class="num">6.6x</td><td class="num">102.0x</td><td class="num">6.5%</td><td class="num">24.0%</td></tr>
+          <tr><td class="co">Info Edge (India)<sup>†</sup></td><td class="num">88,500</td><td class="num">3,200</td><td class="num">27.7x</td><td class="num">72.8x</td><td class="num">38.0%</td><td class="num">15.0%</td></tr>
+          <tr><td class="co">Brainbees Solutions (FirstCry)<sup>†</sup></td><td class="num">17,900</td><td class="num">8,600</td><td class="num">2.1x</td><td class="num">83.3x</td><td class="num">2.5%</td><td class="num">15.0%</td></tr>
+          <tr><td class="co">Trent Limited<sup>†</sup></td><td class="num">1,93,500</td><td class="num">19,500</td><td class="num">9.9x</td><td class="num">66.2x</td><td class="num">15.0%</td><td class="num">30.0%</td></tr>
+          <tr class="tot"><td class="co">Peer median</td><td class="num">—</td><td class="num">—</td><td class="num">5.1x</td><td class="num">72.8x</td><td class="num">7.2%</td><td class="num">20.0%</td></tr>
+          <tr class="tot"><td class="co">ETERNAL (this model, FY26E)</td><td class="num">2,15,468</td><td class="num">54,670</td><td class="num">3.9x</td><td class="num">158.8x</td><td class="num">2.5%</td><td class="num">170.1%</td></tr>
+          
+        </tbody>
+      </table>
+      <div class="tbl-note"><sup>†</sup> Market data for these four peers is an analyst estimate as at the
+      valuation date and has not been corroborated against a second independent source. Swiggy and Avenue
+      Supermarts figures are carried from the prior version of this model. Treat the peer median as
+      indicative only — it is a boundary, not a target.</div>
+    </div>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>Valuation triangulation</caption><thead><tr><th>Method</th><th>Value per share (₹)</th><th>Weight</th><th>Contribution (₹)</th></tr></thead><tbody><tr><td class="co">Discounted cash flow (FCFF, 7-year explicit)</td><td class="num">238</td><td class="num">30%</td><td class="num">71.4</td></tr><tr><td class="co">Sum-of-the-parts on FY30E segment metrics</td><td class="num">336</td><td class="num">50%</td><td class="num">168.0</td></tr><tr><td class="co">EV / net order value vs peer set (FY27E)</td><td class="num">323</td><td class="num">20%</td><td class="num">64.6</td></tr><tr class="tot"><td class="co">Blended fair value / target price</td><td class="num">304</td><td class="num">100%</td><td class="num">304</td></tr></tbody></table><div class="tbl-note">Current market price ₹242.87; implied upside 25.2%. Probability-weighted scenario value is ₹258, which sits below the target — we note the discrepancy rather than reconciling it away.</div></div>
+    <div class="rv">
+      <p class="body">The peer table is the weakest evidence in this note and we weight it accordingly.
+      Eternal trades at 3.9x EV/revenue against a peer median of 5.1x,
+      but as section 02 argues, that comparison sets a 1P retailer against 3P marketplaces and means little.
+      The order-value view is cleaner: Eternal at <b>1.5x FY27E order value</b> against Swiggy
+      at 0.9x, a 77.7% premium that we think is justified by the margin gap and
+      the funding position.</p>
+    </div>
 
-<div class="rv">
-<h3 class="sub">The discounted cash flow, and why it loses the argument</h3>
-<p class="body">Seven-year explicit forecast, FY27E to FY33E, at a 12.66% weighted average cost of capital and 6.5% terminal growth. Cost of equity is built from a peer-derived unlevered beta of roughly 0.98 relevered to 0.99, a 6.80% ten-year G-Sec and a 6.0% India equity risk premium. Enterprise value comes to ₹210,813 crore and value per share to <b>₹238</b>.</p>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Implied value — <b>three independent routes, averaged</b></caption>
+        <thead><tr><th>Method</th><th>Metric value</th><th>Multiple</th><th>Value per share</th></tr></thead>
+        <tbody>
+          <tr><td class="co">EV / net order value on FY27E B2C NOV</td><td class="num">1,39,409</td><td class="num">2.1x</td><td class="num">₹322.96</td></tr>
+          <tr><td class="co">EV / adjusted EBITDA on FY29E</td><td class="num">12,016</td><td class="num">22.0x</td><td class="num">₹205.28</td></tr>
+          <tr><td class="co">P / E on FY30E EPS</td><td class="num">14.64</td><td class="num">30.0x</td><td class="num">₹272.60</td></tr>
+          
+          <tr class="tot"><td class="co">Average — relative valuation</td><td></td><td></td><td class="num">₹266.94</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Averaging three routes stops a single multiple assumption from carrying the whole
+      relative valuation. EBITDA and earnings routes are discounted back at WACC.</div>
+    </div>
 
-<p class="body">That is -2.0% against the current market price. It is also 76% terminal value, which is the tell. <b>A seven-year DCF applied to a business still compounding EBITDA in the mid-teens in FY33 terminalises it mid-S-curve and systematically understates it.</b> That is a structural criticism of the method here, not a reason to raise the growth rate until it agrees. We weight it 30% and move on.</p>
+    <h3 class="sub rv">Triangulation</h3>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Target price — <b>weighted blend</b></caption>
+        <thead><tr><th>Method</th><th>Value per share</th><th>Weight</th><th>Contribution</th></tr></thead>
+        <tbody>
+          <tr><td class="co">Discounted cash flow (FCFF, nine-year)</td><td class="num">₹251.42</td><td class="num">30%</td><td class="num">₹75.43</td></tr>
+          <tr><td class="co">Sum-of-the-parts on FY30E segment metrics</td><td class="num">₹336.07</td><td class="num">50%</td><td class="num">₹168.03</td></tr>
+          <tr><td class="co">Relative valuation, three routes</td><td class="num">₹266.94</td><td class="num">20%</td><td class="num">₹53.39</td></tr>
+          <tr class="tot"><td class="co">Blended fair value → target</td><td class="num">₹296.85</td><td class="num">100%</td><td class="num">₹297</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-<p class="body">The reverse DCF is the more useful output. Holding this cash-flow path and this cost of capital, the market at ₹242.87 is asking Eternal to compound free cash flow in perpetuity at <b>6.66%</b> — below India's roughly 10.5% nominal GDP growth. On that test the current price is not demanding. It is the terminal-value concentration, not the implied growth, that makes the DCF unreliable here.</p>
-</div>
+    <div class="callout risk rv">
+      <div class="ch">Where the methods disagree — and what we do about it</div>
+      <p>The DCF returns ₹251 and the SOTP returns ₹336, a gap of
+      <b>33.7%</b>. That is not noise and we will not average it away silently.
+      The DCF charges the full cost of the store rollout — capex, working capital and lease principal — through
+      free cash flow in every year to FY35E. The SOTP applies an exit multiple to FY30E segment metrics and
+      implicitly assumes a buyer would pay for the mature estate without discounting the cost of building it.</p>
+      <p>We lean on the SOTP because segment-level valuation is the right frame for a four-business group, but
+      we acknowledge it is the more generous method. <b>Read ₹251 as the floor a cash-flow buyer
+      would pay and ₹336 as what a strategic acquirer of the parts might.</b> The target sits
+      between them by construction.</p>
+    </div>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>Free cash flow to the firm, ₹ crore</caption><thead><tr><th>Line</th><th>FY27E</th><th>FY28E</th><th>FY29E</th><th>FY30E</th><th>FY31E</th><th>FY32E</th><th>FY33E</th></tr></thead><tbody><tr><td class="co">NOPAT</td><td class="num">1,864</td><td class="num">4,919</td><td class="num">8,667</td><td class="num">12,236</td><td class="num">14,942</td><td class="num">18,022</td><td class="num">20,751</td></tr><tr><td class="co">Add: depreciation &amp; amortisation</td><td class="num">1,915</td><td class="num">2,369</td><td class="num">2,902</td><td class="num">3,453</td><td class="num">4,011</td><td class="num">4,577</td><td class="num">5,134</td></tr><tr><td class="co">Less: capital expenditure</td><td class="num">-1,509</td><td class="num">-1,780</td><td class="num">-1,989</td><td class="num">-2,203</td><td class="num">-2,385</td><td class="num">-2,549</td><td class="num">-2,693</td></tr><tr><td class="co">Less: increase in net working capital</td><td class="num">1,770</td><td class="num">1,555</td><td class="num">1,699</td><td class="num">1,738</td><td class="num">1,695</td><td class="num">1,608</td><td class="num">1,485</td></tr><tr><td class="co">Less: lease principal repayments</td><td class="num">-893</td><td class="num">-1,232</td><td class="num">-1,614</td><td class="num">-2,008</td><td class="num">-2,403</td><td class="num">-2,806</td><td class="num">-3,201</td></tr><tr class="tot"><td class="co">Free cash flow to the firm</td><td class="num">3,146</td><td class="num">5,831</td><td class="num">9,664</td><td class="num">13,216</td><td class="num">15,860</td><td class="num">18,851</td><td class="num">21,476</td></tr></tbody></table><div class="tbl-note">Treasury income on the ₹18,000 crore investment portfolio is deliberately excluded from FCFF and added back separately in the equity bridge — double-counting it is the commonest error in valuing this company, where other income was 155% of pre-tax profit in FY25.</div></div>
+    <div class="callout good rv">
+      <div class="ch">Reverse DCF — the most useful line in the model</div>
+      <p>Holding our FY27E–FY35E cash flows constant and solving for the terminal growth rate that justifies
+      ₹242.87, the market implies <b>6.2% perpetual growth</b>. India's nominal GDP growth is
+      roughly 10.5%. The market is pricing Eternal to grow permanently slower than the economy it operates in.
+      For a business compounding order value at 44% with a proven unit
+      economic model, that is the mispricing.</p>
+    </div>
+  </section>
+  <section class="sec" id="s8">
+    <div class="sec-head rv">
+      <span class="sec-mn">08</span>
+      <h2 class="sec-title">Scenarios</h2>
+      <span class="sec-meta">Bull · base · bear</span>
+    </div>
 
-<div class="rv">
-<h3 class="sub">The sum-of-the-parts, which is the actual argument</h3>
-<p class="body">Eternal is four businesses with different growth, margin and capital profiles. A consolidated multiple is close to meaningless. We value each on FY30E metrics — the first year in which every segment is at or near its guided steady-state margin — and discount the total back four years.</p>
-</div>
+    <div class="rv">
+      <p class="body">Each scenario is a live nine-year mini-DCF driven off the three variables that decide this
+      stock — store count, throughput and margin. The assumption deltas are stated, not just the outputs.</p>
+    </div>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>Sum-of-the-parts on FY30E segment metrics</caption><thead><tr><th>Segment</th><th>Metric</th><th>Value (₹ cr)</th><th>Multiple</th><th>EV (₹ cr)</th><th>% of EV</th></tr></thead><tbody><tr><td class="co">Quick commerce (Blinkit)</td><td class="num">EV / net order value</td><td class="num">200,312</td><td class="num">1.50×</td><td class="num">300,468</td><td class="num">61.1%</td></tr><tr><td class="co">Food delivery (Zomato)</td><td class="num">EV / adjusted EBITDA</td><td class="num">4,837</td><td class="num">30.0×</td><td class="num">145,120</td><td class="num">29.5%</td></tr><tr><td class="co">Going-out (District)</td><td class="num">EV / net order value</td><td class="num">28,123</td><td class="num">1.00×</td><td class="num">28,123</td><td class="num">5.7%</td></tr><tr><td class="co">Hyperpure (B2B supplies)</td><td class="num">EV / revenue</td><td class="num">12,192</td><td class="num">1.50×</td><td class="num">18,288</td><td class="num">3.7%</td></tr><tr><td class="co">Other segments</td><td class="num">No value ascribed</td><td class="num">1,500</td><td class="num">0.0×</td><td class="num">–</td><td class="num">–</td></tr><tr class="tot"><td class="co">Total enterprise value, FY30E basis</td><td class="num"></td><td class="num"></td><td class="num">491,999</td><td class="num">100.0%</td></tr><tr><td class="co">Present value (discounted 4 years at 12.66%)</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">305,410</td><td class="num"></td></tr><tr><td class="co">Add: net cash after lease liabilities, FY26E</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">18,911</td><td class="num"></td></tr><tr class="tot"><td class="co">Equity value / value per share</td><td class="num"></td><td class="num"></td><td class="num">324,321</td><td class="num">₹336</td></tr></tbody></table><div class="tbl-note">Implied cross-checks: Blinkit at 1.63× FY30E revenue and 29.4× FY30E adjusted EBITDA; food delivery at 2.13× FY30E net order value.</div></div>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Scenario analysis — <b>assumption deltas and outcomes</b></caption>
+        <thead><tr><th>Scenario</th><th>FY30E stores</th><th>FY30E NOV/store/day</th><th>Blinkit margin</th><th>WACC / g</th><th>Value/share</th><th>Probability</th></tr></thead>
+        <tbody>
+          <tr><td class="co">Bull — competition rationalises</td><td class="num">7,300</td><td class="num">₹11.80 lakh</td><td class="num">5.9%</td><td class="num">11.6% / 7.0%</td><td class="num">₹443.20</td><td class="num">25%</td></tr>
+          <tr class="tot"><td class="co">Base — mirrors the model</td><td class="num">6,000</td><td class="num">₹9.80 lakh</td><td class="num">5.1%</td><td class="num">12.7% / 6.5%</td><td class="num">₹251.42</td><td class="num">50%</td></tr>
+          <tr><td class="co">Bear — multi-year subsidy war</td><td class="num">4,500</td><td class="num">₹9.00 lakh</td><td class="num">2.8%</td><td class="num">13.6% / 6.0%</td><td class="num">₹125.24</td><td class="num">25%</td></tr>
+        </tbody>
+      </table>
+      <div class="tbl-note">Probability-weighted value: <b>₹267.82</b> — below the blended target of
+      ₹297, reflecting that the scenario frame runs off the DCF alone rather than the full triangulation.</div>
+    </div>
 
-<div class="callout risk rv">
-  <div class="ch">The number this note lives or dies on</div>
-  <p>Blinkit at 1.50× FY30E net order value is 1.63× FY30E revenue. DMart — a slower-growing, lower-frequency value retailer compounding revenue in the mid-teens at an 8% EBITDA margin — trades at roughly 3.5× trailing revenue. Blinkit at that point is still growing net order value above 25%, holds roughly half of a market Datum sizes at $11.5bn and expects to more than triple by 2030, and runs at 5.1% of NOV inside a 5–6% guided band. <b>Marking it at under half of DMart's revenue multiple is a deliberate discount for competitive risk, not an oversight.</b> But at 1.20× the sum-of-the-parts falls to roughly ₹305 and the blended fair value to roughly ₹292, cutting the upside to about 16%. At 1.00× the rating does not survive. That is the falsification condition, stated in advance.</p>
-</div>
-</section><section class="sec" id="s9"><div class="sec-head rv"><span class="sec-mn">09</span><h2 class="sec-title">Bull vs bear</h2><span class="sec-meta">Falsifiable claims</span></div>
-<div class="split rv">
-  <div class="pane bull">
-    <div class="ph">Bull: what has to be true</div>
-    <ul>
-      <li><b>Density deepens rather than exhausts.</b> Delhi NCR still compounds net order value at ~55% on a broadly static store base. If that holds in the next seven metros, productivity per store rises faster than we model and the margin path pulls forward two years.</li>
-      <li><b>Competitive intensity moderates.</b> Management's own conditional guidance is 3,500–4,000 stores by March 2027, which "would keep the pace of NOV growth north of 100%." Amazon and Flipkart are attacking many categories at once; quick commerce is not their only fight.</li>
-      <li><b>Retail media is barely started.</b> Advertising on a grocery platform is a 3–5% of order value line at near-100% incremental margin, and is the lever that takes the category from thin retail to good retail. It is not separately modelled here.</li>
-      <li><b>Food delivery keeps compounding quietly.</b> Two consecutive quarters of accelerating growth at a record margin, on negative capital employed, with no external funding required.</li>
-      <li><b>The balance sheet is a weapon.</b> Net cash plus an internally funded expansion means Eternal can outlast a subsidy war that Swiggy has to raise equity to fight.</li>
-    </ul>
-  </div>
-  <div class="pane bear">
-    <div class="ph">Bear: what breaks it</div>
-    <ul>
-      <li><b>The fight simply lasts longer.</b> This is the case that matters, and it does not require Blinkit to lose — only for three well-funded entrants to keep margins suppressed for five more years than the market assumes.</li>
-      <li><b>Tier-2 dilutes.</b> Smaller baskets and lower frequency against store fixed costs that do not fall proportionally, because square footage tracks assortment rather than ticket size. The next 2,000 stores may be structurally worse than the last 2,000.</li>
-      <li><b>Working capital reverses.</b> Our negative cash conversion cycle is worth ₹1,200–1,700 crore a year of free cash flow. Management flagged a working-capital build alongside the 1P shift. If payable days compress to inventory days, most of the DCF's free cash flow disappears.</li>
-      <li><b>Regulatory cost is permanent.</b> Gig-worker social-security contributions land on a 4–6% end-state margin, not on a 20% one. That is not a footnote.</li>
-      <li><b>Multiple compression does the damage, not earnings.</b> A platform growing 100% at 0% margin is priced on terminal margin; the same platform growing 25% at 5% is priced on earnings. That transition is rarely smooth and it is where the equity risk lives.</li>
-    </ul>
-  </div>
-</div>
-</section><section class="sec" id="s10"><div class="sec-head rv"><span class="sec-mn">10</span><h2 class="sec-title">Scenarios</h2><span class="sec-meta">FY33 outcomes</span></div>
-<div class="rv">
-<p class="body">Each scenario is a live seven-year mini-DCF driven off three variables — Blinkit's store count, its productivity per store, its margin — plus the discount rate. Everything else is held at base. Scenarios that move a dozen assumptions at once tell you nothing about which one mattered.</p>
-</div>
+    <div class="rv">
+      <p class="body">The distribution is wide and asymmetric in a way worth stating: the bull case is
+      82% and the bear is -48%. <b>This is not a low-variance holding.</b>
+      An investor who cannot tolerate a -48% drawdown on a competitive-intensity scenario
+      should not own it at any target price.</p>
+    </div>
+  </section>
 
-<div class="tbl-wrap rv"><table class="dt"><caption>Bull / base / bear, valued not just described</caption><thead><tr><th>Scenario</th><th>Blinkit stores FY33E</th><th>NOV/store/day FY33E</th><th>Blinkit margin FY33E</th><th>WACC / g</th><th>Value/share (₹)</th><th>Upside</th><th>Prob.</th></tr></thead><tbody><tr><td class="co">Bull — competition rationalises</td><td class="num">9,600</td><td class="num">₹13.90 lakh</td><td class="num">6.5%</td><td class="num">11.6% / 7.0%</td><td class="num">431</td><td class="num">77.4%</td><td class="num">25%</td></tr><tr><td class="co">Base — mirrors the model</td><td class="num">7,800</td><td class="num">₹11.45 lakh</td><td class="num">6.0%</td><td class="num">12.7% / 6.5%</td><td class="num">238</td><td class="num">-2.0%</td><td class="num">50%</td></tr><tr><td class="co">Bear — multi-year subsidy war</td><td class="num">5,150</td><td class="num">₹9.80 lakh</td><td class="num">3.6%</td><td class="num">13.6% / 6.0%</td><td class="num">124</td><td class="num">-49.1%</td><td class="num">25%</td></tr><tr class="tot"><td class="co">Probability-weighted value per share</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">258</td><td class="num">6.1%</td><td class="num">100%</td></tr></tbody></table><div class="tbl-note">The distribution is deliberately asymmetric in shape rather than in probability. The bear case does not go to zero because food delivery alone generates real cash and there is no debt; the bull case requires a competitive truce that no participant currently has an incentive to call.</div></div>
+  <section class="sec" id="s9">
+    <div class="sec-head rv">
+      <span class="sec-mn">09</span>
+      <h2 class="sec-title">Bull &amp; bear</h2>
+      <span class="sec-meta">Falsifiable claims</span>
+    </div>
 
-<div class="rv">
-<p class="body"><b>The probability-weighted value of ₹258 sits below our ₹304 target, and we are not going to reconcile that away.</b> The two answer different questions. The scenario weighting is a distribution across outcomes for the operating business under one method; the target is a triangulation across three methods under the base case. The gap is a fair criticism of this note, and the honest reading is that the scenario spread — ₹124 to ₹431 — is very wide, which is the real message. This is not a stock where a point estimate deserves much confidence.</p>
-</div>
-</section><section class="sec" id="s11"><div class="sec-head rv"><span class="sec-mn">11</span><h2 class="sec-title">Risks</h2><span class="sec-meta">Downside</span></div>
-<div class="rv">
-<h3 class="sub">Competitive</h3>
-<p class="body">Three entrants with balance sheets that do not require quick commerce to be profitable — Amazon Now, Flipkart Minutes, Reliance — plus a freshly funded and IPO-bound Zepto. Management's own words are the fair statement of it: "if these tactics start impacting our business, we would need to respond and that might impact our margins... quarterly profitability therefore is not guaranteed."</p>
+    <div class="split rv">
+      <div class="pane bull">
+        <div class="ph">Bull case — what has to be true</div>
+        <ul>
+          <li><b>Throughput clears ₹10 lakh per store per day by FY30E.</b> Falsified if quarterly NOV per store per day stalls below ₹9 lakh for three consecutive quarters.</li>
+          <li><b>National share consolidates to three players above 90%.</b> Falsified if Amazon, Flipkart and Reliance collectively hold more than 15% of category order value by FY28.</li>
+          <li><b>Blinkit margin reaches 5.1% on order value by FY30E.</b> Falsified if segment margin is below 3.5% at FY29.</li>
+          <li><b>Food delivery stays a cash annuity at 7.1%+ margin.</b> Falsified by two consecutive quarters of margin compression below 5%.</li>
+          <li><b>Net cash is never called on for equity issuance.</b> Falsified by any primary raise before FY29.</li>
+        </ul>
+      </div>
+      <div class="pane bear">
+        <div class="ph">Bear case — what breaks it</div>
+        <ul>
+          <li><b>Subsidy war extends four to six years.</b> Three entrants with no payback horizon cap category margin near breakeven indefinitely.</li>
+          <li><b>Store additions outrun demand.</b> Opening 1,000 stores a year into insufficient catchment density drags blended throughput down even as the estate grows.</li>
+          <li><b>Terminal margin caps at 3.5%, not 6.4%.</b> Grocery with a 10-minute delivery obligation may simply not earn more.</li>
+          <li><b>The SOTP is doing too much work.</b> Half the target rests on a method that does not charge for the cost of building the estate it values.</li>
+          <li><b>Regulatory intervention on labour or FDI in inventory-led retail.</b> A 1P quick commerce model is structurally exposed to both.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="sec" id="s10">
+    <div class="sec-head rv">
+      <span class="sec-mn">10</span>
+      <h2 class="sec-title">Risks</h2>
+      <span class="sec-meta">Specific, not boilerplate</span>
+    </div>
 
-<h3 class="sub">Operational</h3>
-<p class="body">Store additions missed guidance in the December quarter on GRAP restrictions and festive load. A network scaling from 2,027 to 6,000 stores in four years is an execution problem of a different order, involving hiring, real estate and supply chain simultaneously. Blinkit has executed well; the base rate for this kind of scaling is not encouraging.</p>
+    <div class="rv">
+      <ol class="body">
+        <li><b>Competitive intensity is the dominant risk and it is not diversifiable within the position.</b>
+        Reliance, Flipkart and Amazon can each fund a decade of losses. Our bear case at ₹125 assumes
+        they do. Nothing in Eternal's control prevents it.</li>
+        <li><b>The valuation rests disproportionately on one method.</b> The SOTP carries 50% weight and returns
+        33.7% more than the DCF. If a reader rejects the segment multiples, the target
+        falls toward ₹255.</li>
+        <li><b>Throughput assumptions are analyst constructs, not disclosure.</b> NOV per store per day is derived,
+        not reported. If the true blended figure is materially below our ₹7.39 lakh FY26E
+        starting point, the entire margin path shifts right.</li>
+        <li><b>Peer comparables are weak.</b> Four of six peer rows in section 07 are single-source analyst
+        estimates. The relative valuation carries only 20% weight partly for this reason.</li>
+        <li><b>Effective tax rate normalisation.</b> We move from 50% in FY26E to 25.17% from
+        FY31E on accumulated-loss absorption. A slower normalisation reduces FY28E–FY30E earnings materially.</li>
+        <li><b>Regulatory exposure on two fronts:</b> gig-worker classification and social-security obligations,
+        and FDI rules on inventory-led multi-brand retail. Either could alter the 1P model's cost base or
+        structure.</li>
+        <li><b>Key-person and governance.</b> No promoter holding, a founder-led executive team and a history of
+        rapid capital reallocation into new formats — Bistro, Nugget, District — with limited disclosure on
+        payback.</li>
+      </ol>
+    </div>
+  </section>
 
-<h3 class="sub">Regulatory</h3>
-<p class="body">Gig-worker social-security contributions under the notified labour codes fall directly on a 4–6% terminal margin. FDI policy constrains inventory-led e-commerce and the 1P model's structure depends on continued compliance. Local restrictions — GRAP is the live example — can suspend store construction in the single densest market.</p>
+  <section class="sec" id="s11">
+    <div class="sec-head rv">
+      <span class="sec-mn">11</span>
+      <h2 class="sec-title">What we watch</h2>
+      <span class="sec-meta">Catalysts &amp; monitoring</span>
+    </div>
 
-<h3 class="sub">Governance and key person</h3>
-<p class="body">The founder-CEO resigned effective 1 February 2026 and the Blinkit founder now runs the group while retaining Blinkit as his stated first priority. Strategy and value are concentrated in one person and one segment.</p>
+    <div class="watch rv">
+      <div class="watch-r"><div class="m">Blinkit NOV per store per day</div><div class="w">The single most important disclosed-derivable metric. Three quarters below ₹9 lakh falsifies the margin path.</div><div class="t">Quarterly</div></div>
+      <div class="watch-r"><div class="m">Net dark-store additions</div><div class="w">We model 1,000 in FY27E tapering to 300 by FY35E. Additions well above plan without throughput holding is a warning, not a positive.</div><div class="t">Quarterly</div></div>
+      <div class="watch-r"><div class="m">Blinkit segment adjusted EBITDA margin</div><div class="w">Needs to reach 2.0% in FY27E and 4.4% by FY29E to hold the base case.</div><div class="t">Quarterly</div></div>
+      <div class="watch-r"><div class="m">Food delivery margin on order value</div><div class="w">The annuity that funds the rollout. Sustained compression below 5% removes the self-funding argument.</div><div class="t">Quarterly</div></div>
+      <div class="watch-r"><div class="m">Category share disclosure</div><div class="w">Blinkit at ~48% national order value. Erosion toward 40% as entrants scale would re-rate the terminal margin down.</div><div class="t">Semi-annual</div></div>
+      <div class="watch-r"><div class="m">Any primary equity raise</div><div class="w">Would falsify the funding-capacity thesis directly and signal that the subsidy war is being lost.</div><div class="t">Event</div></div>
+      <div class="watch-r"><div class="m">Gig-worker regulation</div><div class="w">Social-security codes and state-level platform-worker legislation. A cost-base shock, not a demand shock.</div><div class="t">Ongoing</div></div>
+    </div>
+  </section>
 
-<h3 class="sub">Model risk, stated plainly</h3>
-<p class="body">The FY25 balance-sheet composition is an analyst allocation tying to the disclosed ₹30,317 crore of total equity. ESOP dilution of roughly 0.4–0.5% a year is not deducted, overstating per-share values by 3–4%. The peer set is two names. Goodwill is never impaired. Each of these is flagged in the workbook where it occurs.</p>
-</div>
-</section><section class="sec" id="s12"><div class="sec-head rv"><span class="sec-mn">12</span><h2 class="sec-title">What we watch</h2><span class="sec-meta">Monitoring</span></div>
-<div class="rv">
-<p class="body">In order of how much they would move our view.</p>
-<ol class="body">
-<li><b>Net order value per store per day, quarterly.</b> The load-bearing assumption. FY26E is ₹7.39 lakh; we need ₹8.50 lakh by FY28E. Two consecutive quarters of decline on a growing store base would break the margin path and the sum-of-the-parts with it.</li>
-<li><b>Blinkit adjusted EBITDA margin sequence.</b> Q3 FY26 was the first positive quarter at 0.0% of NOV. We need 2.0% in FY27E. A relapse into losses on competitive response is the bear case arriving.</li>
-<li><b>Store additions against the 3,000-by-March-2027 guidance.</b> And whether management moves to the conditional 3,500–4,000 case, which would be the clearest signal that competitive intensity has moderated.</li>
-<li><b>Food delivery NOV growth and margin.</b> Two quarters of acceleration to 16.6% and a record 5.4% margin. This segment funds everything; deterioration here matters more than its 29.5% share of the sum-of-the-parts suggests.</li>
-<li><b>Trade payable days.</b> The quietest and most dangerous line. Compression toward inventory days removes most of the free cash flow in the DCF.</li>
-<li><b>Zepto's IPO pricing and Amazon Now's city count.</b> The clearest external read on whether the subsidy war is escalating or normalising.</li>
-<li><b>Gig-worker rule notification.</b> The point at which a 1–2% of turnover cost becomes a dated obligation rather than a risk paragraph.</li>
-</ol>
-</div>
-</section><section class="sec" id="s13"><div class="sec-head rv"><span class="sec-mn">13</span><h2 class="sec-title">Appendix</h2><span class="sec-meta">Method & sources</span></div>
-<div class="rv">
-<h3 class="sub">Method</h3>
-<ul class="body">
-<li><b>Information cut-off 2 March 2026.</b> The latest reported period is Q3 FY26, filed 21 January 2026 and reviewed by Deloitte Haskins &amp; Sells. Nothing after the cut-off is reflected, by design. FY26E is nine months of reported actuals plus an estimated fourth quarter.</li>
-<li><b>Units are ₹ crore</b>, Eternal's native reporting unit under Ind AS. Indian financial years; FY26 ends 31 March 2026.</li>
-<li><b>The model calibrates to history before forecasting.</b> The FY25A column reproduces the audited accounts: revenue ₹20,242 crore, EBITDA ₹638 crore, D&amp;A ₹863 crore, PBT ₹697 crore, PAT ₹528 crore. The balance sheet ties to zero in all nine periods and the DuPont decomposition reconciles to direct return on equity in all forecast years.</li>
-<li><b>Segment net order value is derived, not assumed.</b> Eternal discloses food-delivery and going-out margins as a percentage of NOV but not the NOV itself. Dividing disclosed absolute adjusted EBITDA by the disclosed margin recovers ₹9,833 crore and ₹2,574 crore; with the disclosed ₹13,300 crore quick-commerce figure these sum to ₹25,707 crore against a disclosed B2C total of ₹25,732 crore.</li>
-<li><b>Analyst estimates are labelled as such</b> throughout the workbook: blue for hardcoded inputs, yellow fill for key levers, black for formulas, green for cross-sheet links.</li>
-</ul>
+  <section class="sec" id="s12">
+    <div class="sec-head rv">
+      <span class="sec-mn">12</span>
+      <h2 class="sec-title">Appendix</h2>
+      <span class="sec-meta">Ratios · sourcing · method</span>
+    </div>
 
-<h3 class="sub">Principal sources</h3>
-<p class="body">Eternal Limited Q3 FY26 consolidated results and shareholders' letter (21 January 2026) · Eternal Limited audited consolidated financial statements for the year ended 31 March 2025 · Swiggy Limited Q3 FY26 results (29 January 2026) · Datum Intelligence 2025 quick-commerce share data via Reuters (22 January 2026) · Business Standard, Storyboard18, Ventura Securities and Goodreturns for dated price references · Trading Economics and Outlook Money for the India 10-year G-Sec · stockanalysis.com for Avenue Supermarts revenue · Reuters (27 December 2025) for Zepto's last private mark.</p>
+    <h3 class="sub rv">Ratio summary</h3>
+    <div class="tbl-wrap rv">
+      <table class="dt">
+        <caption>Ratio analysis — <b>FY25A to FY35E</b></caption>
+        <thead><tr><th>Ratio</th><th>FY25A</th><th>FY26E</th><th>FY27E</th><th>FY28E</th><th>FY29E</th><th>FY30E</th><th>FY35E</th></tr></thead>
+        <tbody>
+          <tr><td class="co">Gross margin</td><td class="num">73.1%</td><td class="num">42.4%</td><td class="num">32.7%</td><td class="num">31.3%</td><td class="num">30.5%</td><td class="num">30.0%</td><td class="num">29.0%</td></tr>
+          <tr><td class="co">EBITDA margin on revenue</td><td class="num">3.2%</td><td class="num">2.5%</td><td class="num">4.9%</td><td class="num">6.6%</td><td class="num">7.7%</td><td class="num">8.6%</td><td class="num">10.1%</td></tr>
+          <tr><td class="co">Adj. EBITDA margin on order value</td><td class="num">1.2%</td><td class="num">1.2%</td><td class="num">2.9%</td><td class="num">4.1%</td><td class="num">5.0%</td><td class="num">5.7%</td><td class="num">6.8%</td></tr>
+          <tr><td class="co">Return on equity</td><td class="num">—</td><td class="num">1.2%</td><td class="num">7.7%</td><td class="num">15.3%</td><td class="num">21.2%</td><td class="num">23.5%</td><td class="num">18.3%</td></tr>
+          <tr><td class="co">Return on invested capital</td><td class="num">-1.3%</td><td class="num">-0.9%</td><td class="num">13.8%</td><td class="num">33.9%</td><td class="num">56.8%</td><td class="num">77.3%</td><td class="num">144.6%</td></tr>
+          <tr><td class="co">Cash conversion cycle (days)</td><td class="num">(25.2)</td><td class="num">(8.0)</td><td class="num">(8.0)</td><td class="num">(8.0)</td><td class="num">(8.0)</td><td class="num">(8.0)</td><td class="num">(8.0)</td></tr>
+          <tr><td class="co">EV / net order value</td><td class="num">3.5x</td><td class="num">2.2x</td><td class="num">1.5x</td><td class="num">1.1x</td><td class="num">0.8x</td><td class="num">0.6x</td><td class="num">0.1x</td></tr>
+          <tr><td class="co">P / E</td><td class="num">404.4x</td><td class="num">612.0x</td><td class="num">91.5x</td><td class="num">40.1x</td><td class="num">23.4x</td><td class="num">16.6x</td><td class="num">6.9x</td></tr>
+          
+        </tbody>
+      </table>
+      <div class="tbl-note">Valuation ratios struck at the ₹242.87 reference price of 2 March 2026 against
+      forward-year earnings, so later-year multiples fall mechanically and are not a forecast of the multiple.</div>
+    </div>
 
-<p class="fn"><b>On the current market price:</b> ₹242.87 is the NSE close for 2 March 2026. Every output in the model is formula-driven from that one cell, so any subsequent close re-prices the entire note.</p>
+    <h3 class="sub rv">Method</h3>
+    <div class="rv">
+      <p class="body">The model is a fully linked three-statement build with a balance check that reads zero in
+      every period from FY25A to FY35E, a DuPont cross-check on return on equity, and an equity roll-forward
+      that ties to the balance sheet. Reported historicals run FY21A–FY25A as one continuous income statement,
+      balance sheet and cash flow. The revenue build is bottom-up from a dark-store roll-forward, not a growth
+      rate applied to consolidated revenue. Cost of capital is built from CAPM with peer betas unlevered and
+      relevered rather than assumed. The DCF is FCFF over nine explicit years with a Gordon-growth terminal
+      value cross-checked against an exit multiple, plus a reverse DCF.</p>
+    </div>
 
-<p class="fn"><b>On building to a target:</b> the drivers in this model were set to management's stated guidance and to reported history first. The triangulated fair value that fell out was ₹333 at a 5.75% equity risk premium and 7.0% terminal growth; both were then moved to the <em>more</em> conservative 6.0% and 6.5%, which produced ₹304. The reverse DCF on §08 exists so that a reader can check whether the resulting price implies something absurd. It implies 6.66% perpetual growth, below nominal GDP. That is the test we hold ourselves to.</p>
-</div>
-</section>
+    <h3 class="sub rv">Sourcing</h3>
+    <div class="rv">
+      <p class="body">Reported financials FY21A–FY25A: company annual reports, cross-checked against the
+      consolidated income statement, balance sheet and cash flow as filed. Q3 FY26 and 9M FY26 figures: company
+      quarterly results and investor presentation. Segment order value, dark-store counts and category share:
+      company disclosure and investor presentation for the December 2025 quarter. Reference price, shares
+      outstanding and market capitalisation: exchange data as at 2 March 2026.</p>
+
+      <p class="body"><b>Stated limitation.</b> Market data for four of the six peer comparables — Nykaa, Info
+      Edge, FirstCry and Trent — is a single-source analyst estimate and has not been corroborated against a
+      second independent source, contrary to the two-source standard applied to every other hard number in this
+      note. Those rows are flagged in section 07 and the relative valuation they feed carries only 20% of the
+      target weight. A reader relying on the peer median should verify it independently.</p>
+    </div>
+
+    <div class="fn rv">
+      <b>Construct note</b><br>
+      Net order value (NOV) is used throughout in preference to gross order value or consolidated revenue.
+      For an owned-inventory model such as Blinkit, roughly 92% of NOV is booked as revenue; for a commission
+      marketplace such as Zomato, roughly 27.5%. Comparing revenue multiples across the two therefore compares
+      accounting choices rather than businesses. All segment multiples in the sum-of-the-parts are struck on
+      the denominator appropriate to that segment's model, and stated in the table.
+    </div>
+  </section>
+
   </main>
-
 </div>
 </div>
 
 <footer>
   <div class="wrap">
     <p class="disclosure">
-      <b>Disclosure:</b> This report is a piece of independent research published as part of a personal research portfolio. Everything in it reflects my own analysis and estimates, produced from public filings, company disclosures and publicly available third-party data. It is for information only, is not investment advice, and is not a recommendation to buy or sell any security. I may hold a position in the security discussed. No compensation has been received from any company covered.
+      <b>Disclosure:</b> This report is a piece of independent research published as part of a personal research
+      portfolio. Everything in it reflects my own analysis and estimates, produced from public filings, company
+      disclosures and publicly available third-party data. It is for information only, is not investment advice,
+      and is not a recommendation to buy or sell any security. I may hold a position in the security discussed.
+      No compensation has been received from any company covered. Readers should conduct their own due diligence
+      and consult a SEBI-registered investment adviser before making investment decisions. Past performance is
+      not indicative of future results.
     </p>
     <p class="disclosure">
-      <b>Estimates:</b> All forward-looking statements, scenarios, unit-economics constructs and valuation multiples are the author's own and are marked as such throughout. They may prove wrong. Reported company figures are as disclosed for the quarter and nine months ended 31 December 2025 and for the year ended 31 March 2025, stated on the company's own reporting basis. The current market price of ₹242.87 is the NSE close for 2 March 2026. Readers should refer to primary company filings before relying on any figure.
+      <b>Point-in-time:</b> All prices, market data and valuation outputs are stated as at <b>2 March 2026</b>
+      against a reference price of ₹242.87, with the quarter ended 31 December 2025 as the last reported
+      period. This note has not been marked to any later market and should be read as a dated record of the
+      analysis made on that date, not as a current recommendation.
+    </p>
+    <p class="disclosure">
+      <b>Estimates:</b> All forward-looking statements, scenarios, unit-economics constructs and market-share
+      estimates are the author's own and are marked as such throughout. They may prove wrong. Peer market data
+      marked <sup>†</sup> is a single-source estimate and is not independently corroborated.
     </p>
     <div class="colophon">
       <span>© 2026 Aditya Nair · Eternal Limited: Initiating Coverage</span>
-      <span>AN<b>·</b>EQUITY RESEARCH · Mumbai, India · Information cut-off 2 Mar 2026</span>
+      <span>AN<b>·</b>EQUITY RESEARCH · Mumbai, India · Data cut-off 2 Mar 2026</span>
     </div>
   </div>
 </footer>
-
 <script>
   // Live IST clock
   const clockEl = document.getElementById('clock');
@@ -929,4 +1508,3 @@
 
 </body>
 </html>
-
